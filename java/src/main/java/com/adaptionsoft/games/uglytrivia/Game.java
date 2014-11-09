@@ -54,9 +54,9 @@ public class Game {
 
 	private void createQuestions() {
 		questionPool.add(POP_TOPIC, popQuestions);
-		questionPool.add(SCIENCE_TOPIC_DESCRIPTION, scienceQuestions);
-		questionPool.add(SPORTS_TOPIC_DESCRIPTION, sportsQuestions);
-		questionPool.add(ROCK_TOPIC_DESCRIPTION, rockQuestions);
+		questionPool.add(SCIENCE_TOPIC, scienceQuestions);
+		questionPool.add(SPORTS_TOPIC, sportsQuestions);
+		questionPool.add(ROCK_TOPIC, rockQuestions);
 		
 		
 		for (int i = 0; i < QUESTION_POOL_SIZE; i++) {
