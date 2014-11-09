@@ -7,6 +7,15 @@ import java.util.List;
 public class Game {
     public class Questions {
     	private final LinkedList<String> value = new LinkedList<String>();
+		private final String topic;
+
+		public Questions(String questionTopic) {
+			topic = questionTopic;
+		}
+		
+		public Questions(){
+			topic = null;
+		}
 
 		public void add(String string) {
 			value.add(string);
@@ -19,6 +28,10 @@ public class Game {
 		public void addWithName(String questionTopic) {
 			add(questionTopic + " Question " + value.size());
 		}
+
+		public void addWithNameFromTopic() {
+			addWithName(topic);
+		}
 		
 	}
 
@@ -28,7 +41,7 @@ public class Game {
     int[] purses  = new int[6];
     boolean[] inPenaltyBox  = new boolean[6];
     
-    Questions popQuestions = new Questions();
+    Questions popQuestions = new Questions("Pop");
     Questions scienceQuestions = new Questions();
     Questions sportsQuestions = new Questions();
     Questions rockQuestions = new Questions();
@@ -38,7 +51,7 @@ public class Game {
     
     public  Game(){
     	for (int i = 0; i < 50; i++) {
-			popQuestions.addWithName("Pop");
+			popQuestions.addWithNameFromTopic();
 			scienceQuestions.add(("Science Question " + i));
 			sportsQuestions.add(("Sports Question " + i));
 			rockQuestions.add(createRockQuestion(i));
