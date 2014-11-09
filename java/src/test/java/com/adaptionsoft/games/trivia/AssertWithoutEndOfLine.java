@@ -4,12 +4,12 @@ import static org.junit.Assert.assertEquals;
 
 public class AssertWithoutEndOfLine {
 
-	public static void equals(String gameWithSeed1, String string) {
-		assertEquals(removeWindowsEndOfLine(gameWithSeed1),removeWindowsEndOfLine(string));
+	public static void equals(String expected, String actual) {
+		assertEquals(removeWindowsEndOfLine(expected),removeWindowsEndOfLine(actual));
 	}
 	
-	private static String removeWindowsEndOfLine(String gameWithSeed1) {
-		return gameWithSeed1.replace("\r", "");
+	private static String removeWindowsEndOfLine(String content) {
+		return content.replace("\r", "");
 	}
 
 }

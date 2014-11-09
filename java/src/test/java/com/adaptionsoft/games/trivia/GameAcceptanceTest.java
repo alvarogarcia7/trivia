@@ -45,8 +45,8 @@ public class GameAcceptanceTest {
 
 	}
 
-	private void assertEqualsOSEndOfLineIndependent(String gameWithSeed1, String string) {
-		AssertWithoutEndOfLine.equals(gameWithSeed1, string);
+	private void assertEqualsOSEndOfLineIndependent(String expected, String actual) {
+		AssertWithoutEndOfLine.equals(expected, actual);
 	}
 
 	private String expectedOutputForGameWithSeed1() {
