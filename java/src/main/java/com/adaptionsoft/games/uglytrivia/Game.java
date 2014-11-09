@@ -6,50 +6,6 @@ import java.util.Map;
 
 public class Game {
 
-	public class QuestionPool{
-
-		private Map<String, Questions> value = new HashMap<String, Questions>();
-		private final int size;
-
-		public QuestionPool(int size) {
-			this.size = size;
-		}
-
-		private void add(String topicDescription, Questions questions) {
-			this.value.put(topicDescription, questions);
-		}
-
-		private String getQuestionFor(Topic topic) {
-			return value.get(topic.getValue()).removeFirst();
-		}
-
-		private void add(Topic topic, Questions questions) {
-			add(topic.getValue(), questions);
-		}
-
-		public void addHowManyQuestionsForTopic(Topic topic) {
-			add(topic, new Questions(topic, size));
-		}
-
-		public Topic getTopicForPlace(int playerPlace) {
-			//TODO this is the current playerPlace % the size of question topics (currently 4)
-			final int topicSize = value.keySet().size();
-			if (playerPlace % topicSize == 0) return POP_TOPIC;
-			if (playerPlace % topicSize == 1) return SCIENCE_TOPIC;
-			if (playerPlace % topicSize == 2) return SPORTS_TOPIC;
-			return ROCK_TOPIC;
-		}
-
-		public String getQuestionForPlace(int i) {
-			return getQuestionFor(getTopicForPlace(i));
-		}
-
-	}
-
-	private static final Topic ROCK_TOPIC = new Topic("Rock");
-	private static final Topic SPORTS_TOPIC = new Topic("Sports");
-	private static final Topic SCIENCE_TOPIC = new Topic("Science");
-	private static final Topic POP_TOPIC = new Topic("Pop");
 	private static final int QUESTION_POOL_SIZE = 50;
 	ArrayList players = new ArrayList();
     int[] places = new int[6];
@@ -61,23 +17,14 @@ public class Game {
 	private QuestionPool questionPool = new QuestionPool(QUESTION_POOL_SIZE);
     
     public  Game(){
-    	createQuestions();
+    	questionPool.createQuestions();
     }
-
-	private void createQuestions() {
-		questionPool.addHowManyQuestionsForTopic(POP_TOPIC);
-		questionPool.addHowManyQuestionsForTopic(SCIENCE_TOPIC);
-		questionPool.addHowManyQuestionsForTopic(SPORTS_TOPIC);
-		questionPool.addHowManyQuestionsForTopic(ROCK_TOPIC);
-	}
 
 	public boolean isPlayable() {
 		return (howManyPlayers() >= 2);
 	}
 
 	public boolean add(String playerName) {
-		
-		
 	    players.add(playerName);
 	    places[howManyPlayers()] = 0;
 	    purses[howManyPlayers()] = 0;
