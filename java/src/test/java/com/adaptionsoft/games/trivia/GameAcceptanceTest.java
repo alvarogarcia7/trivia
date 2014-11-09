@@ -46,17 +46,7 @@ public class GameAcceptanceTest {
 	}
 
 	private MockSystemOutput injectSystemOutput() {
-		final MockSystemOutput mockOutput = new MockSystemOutput();
-		
-		System.setOut(new PrintStream(new OutputStream() {
-			
-			@Override
-			public void write(int b) throws IOException {
-				mockOutput.write(b);
-				
-			}
-		}));
-		return mockOutput;
+		return MockSystemOutput.inject();
 	}
 
 	private void assertEqualsOSEndOfLineIndependent(String gameWithSeed1, String string) {
