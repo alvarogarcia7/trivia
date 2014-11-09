@@ -22,19 +22,23 @@ public class Game {
 
 
 	private static final String ROCK_TOPIC_DESCRIPTION = "Rock";
+	private static final Topic ROCK_TOPIC = new Topic(ROCK_TOPIC_DESCRIPTION);
 	private static final String SPORTS_TOPIC_DESCRIPTION = "Sports";
+	private static final Topic SPORTS_TOPIC = new Topic(SPORTS_TOPIC_DESCRIPTION);
 	private static final String SCIENCE_TOPIC_DESCRIPTION = "Science";
+	private static final Topic SCIENCE_TOPIC = new Topic(SCIENCE_TOPIC_DESCRIPTION);
 	private static final String POP_TOPIC_DESCRIPTION = "Pop";
+	private static final Topic POP_TOPIC = new Topic(POP_TOPIC_DESCRIPTION);
 	private static final int QUESTION_POOL_SIZE = 50;
 	ArrayList players = new ArrayList();
     int[] places = new int[6];
     int[] purses  = new int[6];
     boolean[] inPenaltyBox  = new boolean[6];
     
-    Questions popQuestions = new Questions(new Topic(POP_TOPIC_DESCRIPTION));
-    Questions scienceQuestions = new Questions(new Topic(SCIENCE_TOPIC_DESCRIPTION));
-    Questions sportsQuestions = new Questions(new Topic(SPORTS_TOPIC_DESCRIPTION));
-    Questions rockQuestions = new Questions(new Topic(ROCK_TOPIC_DESCRIPTION));
+    Questions popQuestions = new Questions(POP_TOPIC);
+    Questions scienceQuestions = new Questions(SCIENCE_TOPIC);
+    Questions sportsQuestions = new Questions(SPORTS_TOPIC);
+    Questions rockQuestions = new Questions(ROCK_TOPIC);
     
     int currentPlayer = 0;
     boolean isGettingOutOfPenaltyBox;
@@ -131,12 +135,16 @@ public class Game {
 	
 	
 	private String currentCategory() {
+		return currentTopic().getValue();
+	}
+
+	private Topic currentTopic() {
 		//TODO this is the currentPlayerPlace % the size of question topics (currently 4)
 		int currentPlayerPlace = places[currentPlayer];
-		if (currentPlayerPlace % 4 == 0) return POP_TOPIC_DESCRIPTION;
-		if (currentPlayerPlace % 4 == 1) return SCIENCE_TOPIC_DESCRIPTION;
-		if (currentPlayerPlace % 4 == 2) return SPORTS_TOPIC_DESCRIPTION;
-		return ROCK_TOPIC_DESCRIPTION;
+		if (currentPlayerPlace % 4 == 0) return POP_TOPIC;
+		if (currentPlayerPlace % 4 == 1) return SCIENCE_TOPIC;
+		if (currentPlayerPlace % 4 == 2) return SPORTS_TOPIC;
+		return ROCK_TOPIC;
 	}
 
 	public boolean wasCorrectlyAnswered() {
