@@ -1,8 +1,25 @@
 package com.adaptionsoft.games.uglytrivia;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Game {
+
+	public class QuestionPool{
+
+		private Map<String, Questions> value = new HashMap<String, Questions>();
+
+		public void add(String popTopicDescription, Questions popQuestions) {
+			this.value.put(popTopicDescription, popQuestions);
+		}
+
+		public String getQuestionFor(String currentCategory) {
+			return value.get(currentCategory).removeFirst();
+		}
+
+	}
+
 
 	private static final String ROCK_TOPIC_DESCRIPTION = "Rock";
 	private static final String SPORTS_TOPIC_DESCRIPTION = "Sports";
@@ -21,12 +38,19 @@ public class Game {
     
     int currentPlayer = 0;
     boolean isGettingOutOfPenaltyBox;
+	private QuestionPool questionPool = new QuestionPool();
     
     public  Game(){
     	createQuestions();
     }
 
 	private void createQuestions() {
+		questionPool.add(POP_TOPIC_DESCRIPTION, popQuestions);
+		questionPool.add(SCIENCE_TOPIC_DESCRIPTION, scienceQuestions);
+		questionPool.add(SPORTS_TOPIC_DESCRIPTION, sportsQuestions);
+		questionPool.add(ROCK_TOPIC_DESCRIPTION, rockQuestions);
+		
+		
 		for (int i = 0; i < QUESTION_POOL_SIZE; i++) {
 			popQuestions.addWithDescriptionFromTopic();
 			scienceQuestions.addWithDescriptionFromTopic();
@@ -102,17 +126,7 @@ public class Game {
 	}
 
 	private String getQuestionFor(String currentCategory) {
-		String questionDescription = null;
-		if (currentCategory == POP_TOPIC_DESCRIPTION) {
-			questionDescription = popQuestions.removeFirst();
-		} else if (currentCategory == SCIENCE_TOPIC_DESCRIPTION) {
-			questionDescription = scienceQuestions.removeFirst();
-		} else if (currentCategory == SPORTS_TOPIC_DESCRIPTION) {
-			questionDescription = sportsQuestions.removeFirst();
-		} else if (currentCategory == ROCK_TOPIC_DESCRIPTION) {
-			questionDescription = rockQuestions.removeFirst();
-		}
-		return questionDescription;
+		return questionPool.getQuestionFor(currentCategory);
 	}
 	
 	
