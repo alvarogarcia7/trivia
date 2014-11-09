@@ -97,14 +97,17 @@ public class Game {
 	}
 
 	private void askQuestionFor(String currentCategory) {
+		String questionDescription = null;
 		if (currentCategory == POP_TOPIC_DESCRIPTION)
-			System.out.println(popQuestions.removeFirst());
+			questionDescription = popQuestions.removeFirst();
 		if (currentCategory == SCIENCE_TOPIC_DESCRIPTION)
-			System.out.println(scienceQuestions.removeFirst());
+			questionDescription = scienceQuestions.removeFirst();
 		if (currentCategory == SPORTS_TOPIC_DESCRIPTION)
-			System.out.println(sportsQuestions.removeFirst());
+			questionDescription = sportsQuestions.removeFirst();
 		if (currentCategory == ROCK_TOPIC_DESCRIPTION)
-			System.out.println(rockQuestions.removeFirst());
+			questionDescription = rockQuestions.removeFirst();
+		
+		System.out.println(questionDescription);
 	}
 	
 	
