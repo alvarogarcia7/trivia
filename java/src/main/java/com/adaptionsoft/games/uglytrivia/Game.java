@@ -105,15 +105,10 @@ public class Game {
 	
 	
 	private String currentCategory() {
-		if (places[currentPlayer] == 0) return POP_TOPIC_DESCRIPTION;
-		if (places[currentPlayer] == 4) return POP_TOPIC_DESCRIPTION;
-		if (places[currentPlayer] == 8) return POP_TOPIC_DESCRIPTION;
-		if (places[currentPlayer] == 1) return SCIENCE_TOPIC_DESCRIPTION;
-		if (places[currentPlayer] == 5) return SCIENCE_TOPIC_DESCRIPTION;
-		if (places[currentPlayer] == 9) return SCIENCE_TOPIC_DESCRIPTION;
-		if (places[currentPlayer] == 2) return SPORTS_TOPIC_DESCRIPTION;
-		if (places[currentPlayer] == 6) return SPORTS_TOPIC_DESCRIPTION;
-		if (places[currentPlayer] == 10) return SPORTS_TOPIC_DESCRIPTION;
+		int currentPlayerPlace = places[currentPlayer];
+		if (currentPlayerPlace == 0 || currentPlayerPlace == 4 || currentPlayerPlace == 8) return POP_TOPIC_DESCRIPTION;
+		if (currentPlayerPlace == 1 || currentPlayerPlace == 5 || currentPlayerPlace == 9) return SCIENCE_TOPIC_DESCRIPTION;
+		if (currentPlayerPlace == 2 || currentPlayerPlace == 6 || currentPlayerPlace == 10) return SPORTS_TOPIC_DESCRIPTION;
 		return ROCK_TOPIC_DESCRIPTION;
 	}
 
