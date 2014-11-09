@@ -1,4 +1,4 @@
-package com.adaptionsoft.games.trivia;
+package com.example.legacycode.utils;
 
 import java.io.IOException;
 import java.io.OutputStream;

@@ -11,6 +11,8 @@ import java.util.Random;
 import org.junit.Test;
 
 import com.adaptionsoft.games.uglytrivia.Game;
+import com.example.assertion.AssertWithoutEndOfLine;
+import com.example.legacycode.utils.MockSystemOutput;
 
 public class GameAcceptanceTest {
 
