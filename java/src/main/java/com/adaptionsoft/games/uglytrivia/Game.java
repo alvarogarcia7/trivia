@@ -10,8 +10,8 @@ public class Game {
 
 		private Map<String, Questions> value = new HashMap<String, Questions>();
 
-		private void add(String popTopicDescription, Questions popQuestions) {
-			this.value.put(popTopicDescription, popQuestions);
+		private void add(String topicDescription, Questions questions) {
+			this.value.put(topicDescription, questions);
 		}
 
 		public String getQuestionFor(String currentCategory) {
