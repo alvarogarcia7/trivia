@@ -97,6 +97,11 @@ public class Game {
 	}
 
 	private void askQuestionFor(String currentCategory) {
+		String questionDescription = getQuestionFor(currentCategory);
+		System.out.println(questionDescription);
+	}
+
+	private String getQuestionFor(String currentCategory) {
 		String questionDescription = null;
 		if (currentCategory == POP_TOPIC_DESCRIPTION) {
 			questionDescription = popQuestions.removeFirst();
@@ -107,8 +112,7 @@ public class Game {
 		} else if (currentCategory == ROCK_TOPIC_DESCRIPTION) {
 			questionDescription = rockQuestions.removeFirst();
 		}
-		
-		System.out.println(questionDescription);
+		return questionDescription;
 	}
 	
 	
