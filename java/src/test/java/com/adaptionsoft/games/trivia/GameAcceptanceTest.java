@@ -59,12 +59,12 @@ public class GameAcceptanceTest {
 	}
 	
 	private String expectedOutputForGameWithSeed(long seed) {
-		if(3L == seed){
-			return expectedOutputForGameWithSeed3();
-		} else if(2L == seed){
-			return expectedOutputForGameWithSeed2();
-		}else if(1L == seed){
+		if (1L == seed) {
 			return expectedOutputForGameWithSeed1();
+		} else if (2L == seed) {
+			return expectedOutputForGameWithSeed2();
+		} else if (3L == seed) {
+			return expectedOutputForGameWithSeed3();
 		}
 		return null;
 	}
