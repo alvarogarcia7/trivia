@@ -34,10 +34,10 @@ public class Game {
     int[] purses  = new int[6];
     boolean[] inPenaltyBox  = new boolean[6];
     
-    Questions popQuestions = new Questions(POP_TOPIC);
-    Questions scienceQuestions = new Questions(SCIENCE_TOPIC);
-    Questions sportsQuestions = new Questions(SPORTS_TOPIC);
-    Questions rockQuestions = new Questions(ROCK_TOPIC);
+    Questions popQuestions = new Questions(POP_TOPIC, QUESTION_POOL_SIZE);
+    Questions scienceQuestions = new Questions(SCIENCE_TOPIC, QUESTION_POOL_SIZE);
+    Questions sportsQuestions = new Questions(SPORTS_TOPIC, QUESTION_POOL_SIZE);
+    Questions rockQuestions = new Questions(ROCK_TOPIC, QUESTION_POOL_SIZE);
     
     int currentPlayer = 0;
     boolean isGettingOutOfPenaltyBox;
@@ -52,14 +52,6 @@ public class Game {
 		questionPool.add(SCIENCE_TOPIC, scienceQuestions);
 		questionPool.add(SPORTS_TOPIC, sportsQuestions);
 		questionPool.add(ROCK_TOPIC, rockQuestions);
-		
-		
-		for (int i = 0; i < QUESTION_POOL_SIZE; i++) {
-			popQuestions.addWithDescriptionFromTopic();
-			scienceQuestions.addWithDescriptionFromTopic();
-			sportsQuestions.addWithDescriptionFromTopic();
-			rockQuestions.addWithDescriptionFromTopic();
-    	}
 	}
 
 	public boolean isPlayable() {

@@ -7,11 +7,19 @@ public class Questions {
 	private final Topic topic;
 
 	public Questions(Topic topic) {
-		this.topic = topic;
+		this(topic, 0);
 	}
 	
 	public Questions(){
-		topic = null;
+		this(null);
+	}
+
+	public Questions(Topic topic, int questionPoolSize) {
+		this.topic = topic;
+		
+		for (int i = 0; i < questionPoolSize; i++) {
+			addWithDescriptionFromTopic();
+    	}
 	}
 
 	public String removeFirst() {
