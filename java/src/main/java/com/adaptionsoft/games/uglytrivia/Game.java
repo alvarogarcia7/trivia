@@ -34,11 +34,6 @@ public class Game {
     int[] purses  = new int[6];
     boolean[] inPenaltyBox  = new boolean[6];
     
-    Questions popQuestions = new Questions(POP_TOPIC, QUESTION_POOL_SIZE);
-    Questions scienceQuestions = new Questions(SCIENCE_TOPIC, QUESTION_POOL_SIZE);
-    Questions sportsQuestions = new Questions(SPORTS_TOPIC, QUESTION_POOL_SIZE);
-    Questions rockQuestions = new Questions(ROCK_TOPIC, QUESTION_POOL_SIZE);
-    
     int currentPlayer = 0;
     boolean isGettingOutOfPenaltyBox;
 	private QuestionPool questionPool = new QuestionPool();
@@ -48,10 +43,10 @@ public class Game {
     }
 
 	private void createQuestions() {
-		questionPool.add(POP_TOPIC, popQuestions);
-		questionPool.add(SCIENCE_TOPIC, scienceQuestions);
-		questionPool.add(SPORTS_TOPIC, sportsQuestions);
-		questionPool.add(ROCK_TOPIC, rockQuestions);
+		questionPool.add(POP_TOPIC, new Questions(POP_TOPIC, QUESTION_POOL_SIZE));
+		questionPool.add(SCIENCE_TOPIC, new Questions(SCIENCE_TOPIC, QUESTION_POOL_SIZE));
+		questionPool.add(SPORTS_TOPIC, new Questions(SPORTS_TOPIC, QUESTION_POOL_SIZE));
+		questionPool.add(ROCK_TOPIC, new Questions(ROCK_TOPIC, QUESTION_POOL_SIZE));
 	}
 
 	public boolean isPlayable() {
