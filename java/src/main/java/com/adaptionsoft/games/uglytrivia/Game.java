@@ -6,6 +6,7 @@ import java.util.List;
 
 public class Game {
 
+	private static final int QUESTION_POOL_SIZE = 50;
 	ArrayList players = new ArrayList();
     int[] places = new int[6];
     int[] purses  = new int[6];
@@ -24,7 +25,7 @@ public class Game {
     }
 
 	private void createQuestions() {
-		for (int i = 0; i < 50; i++) {
+		for (int i = 0; i < QUESTION_POOL_SIZE; i++) {
 			popQuestions.addWithDescriptionFromTopic();
 			scienceQuestions.addWithDescriptionFromTopic();
 			sportsQuestions.addWithDescriptionFromTopic();
