@@ -6,14 +6,6 @@ public class Questions {
 	private final LinkedList<String> value = new LinkedList<String>();
 	private final Topic topic;
 
-	public Questions(Topic topic) {
-		this(topic, 0);
-	}
-	
-	public Questions(){
-		this(null);
-	}
-
 	public Questions(Topic topic, int questionPoolSize) {
 		this.topic = topic;
 		
