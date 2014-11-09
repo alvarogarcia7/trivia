@@ -5,36 +5,6 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class Game {
-    public class Questions {
-    	private final LinkedList<String> value = new LinkedList<String>();
-		private final Topic topic;
-
-		public Questions(Topic topic) {
-			this.topic = topic;
-		}
-		
-		public Questions(){
-			topic = null;
-		}
-
-		public void add(String string) {
-			value.add(string);
-		}
-
-		public String removeFirst() {
-			return value.removeFirst();
-		}
-
-		private void addWithName(Topic topic) {
-			add(topic.getValue() + " Question " + value.size());
-		}
-
-		public void addWithDescriptionFromTopic() {
-			addWithName(topic);
-		}
-		
-	}
-
 
 	ArrayList players = new ArrayList();
     int[] places = new int[6];
