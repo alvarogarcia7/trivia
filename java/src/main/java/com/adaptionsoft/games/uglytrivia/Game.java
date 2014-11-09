@@ -7,10 +7,10 @@ import java.util.List;
 public class Game {
     public class Questions {
     	private final LinkedList<String> value = new LinkedList<String>();
-		private final String topic;
+		private final Topic topic;
 
-		public Questions(String questionTopic) {
-			topic = questionTopic;
+		public Questions(Topic topic) {
+			this.topic = topic;
 		}
 		
 		public Questions(){
@@ -25,8 +25,8 @@ public class Game {
 			return value.removeFirst();
 		}
 
-		private void addWithName(String questionTopic) {
-			add(questionTopic + " Question " + value.size());
+		private void addWithName(Topic topic) {
+			add(topic.getValue() + " Question " + value.size());
 		}
 
 		public void addWithDescriptionFromTopic() {
@@ -41,7 +41,7 @@ public class Game {
     int[] purses  = new int[6];
     boolean[] inPenaltyBox  = new boolean[6];
     
-    Questions popQuestions = new Questions("Pop");
+    Questions popQuestions = new Questions(new Topic("Pop"));
     Questions scienceQuestions = new Questions();
     Questions sportsQuestions = new Questions();
     Questions rockQuestions = new Questions();
