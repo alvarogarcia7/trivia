@@ -9,6 +9,11 @@ public class Game {
 	public class QuestionPool{
 
 		private Map<String, Questions> value = new HashMap<String, Questions>();
+		private final int size;
+
+		public QuestionPool(int size) {
+			this.size = size;
+		}
 
 		private void add(String topicDescription, Questions questions) {
 			this.value.put(topicDescription, questions);
@@ -22,8 +27,8 @@ public class Game {
 			add(topic.getValue(), questions);
 		}
 
-		public void addHowManyQuestionsForTopic(int amount, Topic topic) {
-			add(topic, new Questions(topic, amount));
+		public void addHowManyQuestionsForTopic(Topic topic) {
+			add(topic, new Questions(topic, size));
 		}
 
 	}
@@ -40,17 +45,17 @@ public class Game {
     
     int currentPlayer = 0;
     boolean isGettingOutOfPenaltyBox;
-	private QuestionPool questionPool = new QuestionPool();
+	private QuestionPool questionPool = new QuestionPool(QUESTION_POOL_SIZE);
     
     public  Game(){
     	createQuestions();
     }
 
 	private void createQuestions() {
-		questionPool.addHowManyQuestionsForTopic(QUESTION_POOL_SIZE, POP_TOPIC);
-		questionPool.addHowManyQuestionsForTopic(QUESTION_POOL_SIZE, SCIENCE_TOPIC);
-		questionPool.addHowManyQuestionsForTopic(QUESTION_POOL_SIZE, SPORTS_TOPIC);
-		questionPool.addHowManyQuestionsForTopic(QUESTION_POOL_SIZE, ROCK_TOPIC);
+		questionPool.addHowManyQuestionsForTopic(POP_TOPIC);
+		questionPool.addHowManyQuestionsForTopic(SCIENCE_TOPIC);
+		questionPool.addHowManyQuestionsForTopic(SPORTS_TOPIC);
+		questionPool.addHowManyQuestionsForTopic(ROCK_TOPIC);
 	}
 
 	public boolean isPlayable() {
