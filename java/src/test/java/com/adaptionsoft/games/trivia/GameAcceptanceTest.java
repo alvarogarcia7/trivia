@@ -69,8 +69,6 @@ public class GameAcceptanceTest {
 
 		} while (notAWinner);
 
-		System.err.println(mockOutput.toString()); 
-
 		AssertWithoutEndOfLine.equals(expectedOutputForGameWithSeed2(), mockOutput.toString());
 	}
 	
@@ -98,8 +96,6 @@ public class GameAcceptanceTest {
 			}
 
 		} while (notAWinner);
-
-		System.err.println(mockOutput.toString()); 
 
 		AssertWithoutEndOfLine.equals(expectedOutputForGameWithSeed3(), mockOutput.toString());
 	}
