@@ -15,6 +15,10 @@ public class Game {
 		public String removeFirst() {
 			return value.removeFirst();
 		}
+
+		public void addWithName(String questionTopic, int i) {
+			add(questionTopic + " Question " + i);
+		}
 		
 	}
 
@@ -34,7 +38,7 @@ public class Game {
     
     public  Game(){
     	for (int i = 0; i < 50; i++) {
-			popQuestions.add("Pop Question " + i);
+			popQuestions.addWithName("Pop",i);
 			scienceQuestions.add(("Science Question " + i));
 			sportsQuestions.add(("Sports Question " + i));
 			rockQuestions.add(createRockQuestion(i));
