@@ -14,16 +14,12 @@ public class Questions {
 		topic = null;
 	}
 
-	public void add(String string) {
-		value.add(string);
-	}
-
 	public String removeFirst() {
 		return value.removeFirst();
 	}
 
 	private void addWithName(Topic topic) {
-		add(topic.getValue() + " Question " + value.size());
+		value.add(topic.getValue() + " Question " + value.size());
 	}
 
 	public void addWithDescriptionFromTopic() {
