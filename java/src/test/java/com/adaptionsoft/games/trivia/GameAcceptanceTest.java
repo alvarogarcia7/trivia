@@ -18,20 +18,20 @@ public class GameAcceptanceTest {
 
 	@Test
 	public void acceptanceTestWithSeed1() {
-		playGameWithSeed(1L);
+		playGameWith(new Seed(1L));
 	}
 	
 	@Test
 	public void acceptanceTestWithSeed2() {
-		playGameWithSeed(2L);
+		playGameWith(new Seed(2L));
 	}
 	
 	@Test
 	public void acceptanceTestWithSeed3() {
-		playGameWithSeed(3L);
+		playGameWith(new Seed(3L));
 	}
 
-	private void playGameWithSeed(long seed) {
+	private void playGameWith(Seed seed) {
 		MockSystemOutput mockOutput = MockSystemOutput.inject();
 		
 		Game aGame = new Game();
@@ -40,7 +40,7 @@ public class GameAcceptanceTest {
 		aGame.add("Pat");
 		aGame.add("Sue"); 
 
-		Random rand = new Random(seed);   
+		Random rand = new Random(seed.getValue());   
 
 		boolean notAWinner;
 		do {
@@ -55,15 +55,16 @@ public class GameAcceptanceTest {
 
 		} while (notAWinner);
 
-		AssertWithoutEndOfLine.equals(expectedOutputForGameWithSeed(seed), mockOutput.toString());
+		AssertWithoutEndOfLine.equals(expectedOutputForGameWith(seed), mockOutput.toString());
 	}
 	
-	private String expectedOutputForGameWithSeed(long seed) {
-		if (1L == seed) {
+	private String expectedOutputForGameWith(final Seed seed) {
+		final long seedValue = seed.getValue();
+		if (1L == seedValue) {
 			return expectedOutputForGameWithSeed1();
-		} else if (2L == seed) {
+		} else if (2L == seedValue) {
 			return expectedOutputForGameWithSeed2();
-		} else if (3L == seed) {
+		} else if (3L == seedValue) {
 			return expectedOutputForGameWithSeed3();
 		}
 		return null;
