@@ -12,9 +12,9 @@ public class Game {
     boolean[] inPenaltyBox  = new boolean[6];
     
     Questions popQuestions = new Questions(new Topic("Pop"));
-    Questions scienceQuestions = new Questions();
-    Questions sportsQuestions = new Questions();
-    Questions rockQuestions = new Questions();
+    Questions scienceQuestions = new Questions(new Topic("Science"));
+    Questions sportsQuestions = new Questions(new Topic("Sports"));
+    Questions rockQuestions = new Questions(new Topic("Rock"));
     
     int currentPlayer = 0;
     boolean isGettingOutOfPenaltyBox;
@@ -22,9 +22,9 @@ public class Game {
     public  Game(){
     	for (int i = 0; i < 50; i++) {
 			popQuestions.addWithDescriptionFromTopic();
-			scienceQuestions.add(("Science Question " + i));
-			sportsQuestions.add(("Sports Question " + i));
-			rockQuestions.add(createRockQuestion(i));
+			scienceQuestions.addWithDescriptionFromTopic();
+			sportsQuestions.addWithDescriptionFromTopic();
+			rockQuestions.addWithDescriptionFromTopic();
     	}
     }
 
