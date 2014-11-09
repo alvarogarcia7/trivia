@@ -18,6 +18,10 @@ public class Game {
 			return value.get(currentCategory).removeFirst();
 		}
 
+		public void add(Topic topic, Questions questions) {
+			add(topic.getValue(), questions);
+		}
+
 	}
 
 
@@ -49,7 +53,7 @@ public class Game {
     }
 
 	private void createQuestions() {
-		questionPool.add(POP_TOPIC_DESCRIPTION, popQuestions);
+		questionPool.add(POP_TOPIC, popQuestions);
 		questionPool.add(SCIENCE_TOPIC_DESCRIPTION, scienceQuestions);
 		questionPool.add(SPORTS_TOPIC_DESCRIPTION, sportsQuestions);
 		questionPool.add(ROCK_TOPIC_DESCRIPTION, rockQuestions);
