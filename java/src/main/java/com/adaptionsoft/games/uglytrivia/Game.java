@@ -24,15 +24,10 @@ public class Game {
 
 	}
 
-
-	private static final String ROCK_TOPIC_DESCRIPTION = "Rock";
-	private static final Topic ROCK_TOPIC = new Topic(ROCK_TOPIC_DESCRIPTION);
-	private static final String SPORTS_TOPIC_DESCRIPTION = "Sports";
-	private static final Topic SPORTS_TOPIC = new Topic(SPORTS_TOPIC_DESCRIPTION);
-	private static final String SCIENCE_TOPIC_DESCRIPTION = "Science";
-	private static final Topic SCIENCE_TOPIC = new Topic(SCIENCE_TOPIC_DESCRIPTION);
-	private static final String POP_TOPIC_DESCRIPTION = "Pop";
-	private static final Topic POP_TOPIC = new Topic(POP_TOPIC_DESCRIPTION);
+	private static final Topic ROCK_TOPIC = new Topic("Rock");
+	private static final Topic SPORTS_TOPIC = new Topic("Sports");
+	private static final Topic SCIENCE_TOPIC = new Topic("Science");
+	private static final Topic POP_TOPIC = new Topic("Pop");
 	private static final int QUESTION_POOL_SIZE = 50;
 	ArrayList players = new ArrayList();
     int[] places = new int[6];
