@@ -10,7 +10,7 @@ public class Game {
 
 		private Map<String, Questions> value = new HashMap<String, Questions>();
 
-		public void add(String popTopicDescription, Questions popQuestions) {
+		private void add(String popTopicDescription, Questions popQuestions) {
 			this.value.put(popTopicDescription, popQuestions);
 		}
 
