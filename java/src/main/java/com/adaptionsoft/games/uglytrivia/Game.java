@@ -2,10 +2,20 @@ package com.adaptionsoft.games.uglytrivia;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 
 public class Game {
-    public class Questions extends LinkedList {
+    public class Questions {
+    	private final LinkedList<String> value = new LinkedList<String>();
 
+		public void add(String string) {
+			value.add(string);
+		}
+
+		public String removeFirst() {
+			return value.removeFirst();
+		}
+		
 	}
 
 
