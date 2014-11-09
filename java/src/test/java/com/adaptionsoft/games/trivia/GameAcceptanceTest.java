@@ -46,11 +46,7 @@ public class GameAcceptanceTest {
 	}
 
 	private void assertEqualsOSEndOfLineIndependent(String gameWithSeed1, String string) {
-		assertEquals(removeWindowsEndOfLine(gameWithSeed1),removeWindowsEndOfLine(string));
-	}
-
-	private String removeWindowsEndOfLine(String gameWithSeed1) {
-		return gameWithSeed1.replace("\r", "");
+		AssertWithoutEndOfLine.equals(gameWithSeed1, string);
 	}
 
 	private String expectedOutputForGameWithSeed1() {
