@@ -33,9 +33,10 @@ public class Game {
 
 		public Topic getTopicForPlace(int playerPlace) {
 			//TODO this is the current playerPlace % the size of question topics (currently 4)
-			if (playerPlace % 4 == 0) return POP_TOPIC;
-			if (playerPlace % 4 == 1) return SCIENCE_TOPIC;
-			if (playerPlace % 4 == 2) return SPORTS_TOPIC;
+			final int topicSize = value.keySet().size();
+			if (playerPlace % topicSize == 0) return POP_TOPIC;
+			if (playerPlace % topicSize == 1) return SCIENCE_TOPIC;
+			if (playerPlace % topicSize == 2) return SPORTS_TOPIC;
 			return ROCK_TOPIC;
 		}
 
