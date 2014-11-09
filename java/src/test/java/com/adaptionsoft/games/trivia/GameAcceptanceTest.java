@@ -39,14 +39,10 @@ public class GameAcceptanceTest {
 
 		} while (notAWinner);
 
-		assertEqualsOSEndOfLineIndependent(expectedOutputForGameWithSeed1(), mockOutput.toString());
+		AssertWithoutEndOfLine.equals(expectedOutputForGameWithSeed1(), mockOutput.toString());
 
 		System.err.println(mockOutput.toString());
 
-	}
-
-	private void assertEqualsOSEndOfLineIndependent(String expected, String actual) {
-		AssertWithoutEndOfLine.equals(expected, actual);
 	}
 
 	private String expectedOutputForGameWithSeed1() {
