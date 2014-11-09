@@ -22,6 +22,10 @@ public class Game {
 			add(topic.getValue(), questions);
 		}
 
+		public void addHowManyQuestionsForTopic(int amount, Topic topic) {
+			add(topic, new Questions(topic, amount));
+		}
+
 	}
 
 	private static final Topic ROCK_TOPIC = new Topic("Rock");
@@ -43,7 +47,7 @@ public class Game {
     }
 
 	private void createQuestions() {
-		questionPool.add(POP_TOPIC, new Questions(POP_TOPIC, QUESTION_POOL_SIZE));
+		questionPool.addHowManyQuestionsForTopic(QUESTION_POOL_SIZE, POP_TOPIC);
 		questionPool.add(SCIENCE_TOPIC, new Questions(SCIENCE_TOPIC, QUESTION_POOL_SIZE));
 		questionPool.add(SPORTS_TOPIC, new Questions(SPORTS_TOPIC, QUESTION_POOL_SIZE));
 		questionPool.add(ROCK_TOPIC, new Questions(ROCK_TOPIC, QUESTION_POOL_SIZE));
