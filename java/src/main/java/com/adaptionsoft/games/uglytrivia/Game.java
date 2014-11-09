@@ -19,7 +19,7 @@ public class Game {
 			this.value.put(topicDescription, questions);
 		}
 
-		public String getQuestionFor(Topic topic) {
+		private String getQuestionFor(Topic topic) {
 			return value.get(topic.getValue()).removeFirst();
 		}
 
@@ -38,6 +38,10 @@ public class Game {
 			if (playerPlace % topicSize == 1) return SCIENCE_TOPIC;
 			if (playerPlace % topicSize == 2) return SPORTS_TOPIC;
 			return ROCK_TOPIC;
+		}
+
+		public String getQuestionForPlace(int i) {
+			return getQuestionFor(getTopicForPlace(i));
 		}
 
 	}
@@ -125,7 +129,7 @@ public class Game {
 	}
 
 	private void askQuestion() {
-		String questionDescription = questionPool.getQuestionFor(questionPool.getTopicForPlace(places[currentPlayer]));
+		String questionDescription = questionPool.getQuestionForPlace(places[currentPlayer]);
 		System.out.println(questionDescription);		
 	}
 
