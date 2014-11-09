@@ -18,62 +18,20 @@ public class GameAcceptanceTest {
 
 	@Test
 	public void acceptanceTestWithSeed1() {
-		MockSystemOutput mockOutput = MockSystemOutput.inject();
-		
-		Game aGame = new Game();
-
-		aGame.add("Chet");
-		aGame.add("Pat");
-		aGame.add("Sue");
-
-		Random rand = new Random(1L);
-
-		boolean notAWinner;
-		do {
-
-			aGame.roll(rand.nextInt(5) + 1);
-
-			if (rand.nextInt(9) == 7) {
-				notAWinner = aGame.wrongAnswer();
-			} else {
-				notAWinner = aGame.wasCorrectlyAnswered();
-			}
-
-		} while (notAWinner);
-
-		AssertWithoutEndOfLine.equals(expectedOutputForGameWithSeed1(), mockOutput.toString());
+		playGameWithSeed(1L);
 	}
 	
 	@Test
 	public void acceptanceTestWithSeed2() {
-		MockSystemOutput mockOutput = MockSystemOutput.inject();
-		
-		Game aGame = new Game();
-
-		aGame.add("Chet");
-		aGame.add("Pat");
-		aGame.add("Sue"); 
-
-		Random rand = new Random(2L);
-
-		boolean notAWinner;
-		do {
-
-			aGame.roll(rand.nextInt(5) + 1);
-
-			if (rand.nextInt(9) == 7) {
-				notAWinner = aGame.wrongAnswer();
-			} else {
-				notAWinner = aGame.wasCorrectlyAnswered();
-			}
-
-		} while (notAWinner);
-
-		AssertWithoutEndOfLine.equals(expectedOutputForGameWithSeed2(), mockOutput.toString());
+		playGameWithSeed(2L);
 	}
 	
 	@Test
 	public void acceptanceTestWithSeed3() {
+		playGameWithSeed(3L);
+	}
+
+	private void playGameWithSeed(long seed) {
 		MockSystemOutput mockOutput = MockSystemOutput.inject();
 		
 		Game aGame = new Game();
@@ -82,7 +40,7 @@ public class GameAcceptanceTest {
 		aGame.add("Pat");
 		aGame.add("Sue"); 
 
-		Random rand = new Random(3L);   
+		Random rand = new Random(seed);   
 
 		boolean notAWinner;
 		do {
@@ -97,9 +55,20 @@ public class GameAcceptanceTest {
 
 		} while (notAWinner);
 
-		AssertWithoutEndOfLine.equals(expectedOutputForGameWithSeed3(), mockOutput.toString());
+		AssertWithoutEndOfLine.equals(expectedOutputForGameWithSeed(seed), mockOutput.toString());
 	}
 	
+	private String expectedOutputForGameWithSeed(long seed) {
+		if(3L == seed){
+			return expectedOutputForGameWithSeed3();
+		} else if(2L == seed){
+			return expectedOutputForGameWithSeed2();
+		}else if(1L == seed){
+			return expectedOutputForGameWithSeed1();
+		}
+		return null;
+	}
+
 	@Test
 	public void isPlayableCoverageTest() {
 		Game aGame = new Game();
