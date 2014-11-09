@@ -6,16 +6,20 @@ import java.util.List;
 
 public class Game {
 
+	private static final String ROCK_TOPIC_DESCRIPTION = "Rock";
+	private static final String SPORTS_TOPIC_DESCRIPTION = "Sports";
+	private static final String SCIENCE_TOPIC_DESCRIPTION = "Science";
+	private static final String POP_TOPIC_DESCRIPTION = "Pop";
 	private static final int QUESTION_POOL_SIZE = 50;
 	ArrayList players = new ArrayList();
     int[] places = new int[6];
     int[] purses  = new int[6];
     boolean[] inPenaltyBox  = new boolean[6];
     
-    Questions popQuestions = new Questions(new Topic("Pop"));
-    Questions scienceQuestions = new Questions(new Topic("Science"));
-    Questions sportsQuestions = new Questions(new Topic("Sports"));
-    Questions rockQuestions = new Questions(new Topic("Rock"));
+    Questions popQuestions = new Questions(new Topic(POP_TOPIC_DESCRIPTION));
+    Questions scienceQuestions = new Questions(new Topic(SCIENCE_TOPIC_DESCRIPTION));
+    Questions sportsQuestions = new Questions(new Topic(SPORTS_TOPIC_DESCRIPTION));
+    Questions rockQuestions = new Questions(new Topic(ROCK_TOPIC_DESCRIPTION));
     
     int currentPlayer = 0;
     boolean isGettingOutOfPenaltyBox;
@@ -91,28 +95,28 @@ public class Game {
 	}
 
 	private void askQuestion() {
-		if (currentCategory() == "Pop")
+		if (currentCategory() == POP_TOPIC_DESCRIPTION)
 			System.out.println(popQuestions.removeFirst());
-		if (currentCategory() == "Science")
+		if (currentCategory() == SCIENCE_TOPIC_DESCRIPTION)
 			System.out.println(scienceQuestions.removeFirst());
-		if (currentCategory() == "Sports")
+		if (currentCategory() == SPORTS_TOPIC_DESCRIPTION)
 			System.out.println(sportsQuestions.removeFirst());
-		if (currentCategory() == "Rock")
+		if (currentCategory() == ROCK_TOPIC_DESCRIPTION)
 			System.out.println(rockQuestions.removeFirst());		
 	}
 	
 	
 	private String currentCategory() {
-		if (places[currentPlayer] == 0) return "Pop";
-		if (places[currentPlayer] == 4) return "Pop";
-		if (places[currentPlayer] == 8) return "Pop";
-		if (places[currentPlayer] == 1) return "Science";
-		if (places[currentPlayer] == 5) return "Science";
-		if (places[currentPlayer] == 9) return "Science";
-		if (places[currentPlayer] == 2) return "Sports";
-		if (places[currentPlayer] == 6) return "Sports";
-		if (places[currentPlayer] == 10) return "Sports";
-		return "Rock";
+		if (places[currentPlayer] == 0) return POP_TOPIC_DESCRIPTION;
+		if (places[currentPlayer] == 4) return POP_TOPIC_DESCRIPTION;
+		if (places[currentPlayer] == 8) return POP_TOPIC_DESCRIPTION;
+		if (places[currentPlayer] == 1) return SCIENCE_TOPIC_DESCRIPTION;
+		if (places[currentPlayer] == 5) return SCIENCE_TOPIC_DESCRIPTION;
+		if (places[currentPlayer] == 9) return SCIENCE_TOPIC_DESCRIPTION;
+		if (places[currentPlayer] == 2) return SPORTS_TOPIC_DESCRIPTION;
+		if (places[currentPlayer] == 6) return SPORTS_TOPIC_DESCRIPTION;
+		if (places[currentPlayer] == 10) return SPORTS_TOPIC_DESCRIPTION;
+		return ROCK_TOPIC_DESCRIPTION;
 	}
 
 	public boolean wasCorrectlyAnswered() {
