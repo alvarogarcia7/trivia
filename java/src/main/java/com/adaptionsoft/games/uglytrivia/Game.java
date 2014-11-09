@@ -31,6 +31,14 @@ public class Game {
 			add(topic, new Questions(topic, size));
 		}
 
+		public Topic getTopicForPlace(int playerPlace) {
+			//TODO this is the current playerPlace % the size of question topics (currently 4)
+			if (playerPlace % 4 == 0) return POP_TOPIC;
+			if (playerPlace % 4 == 1) return SCIENCE_TOPIC;
+			if (playerPlace % 4 == 2) return SPORTS_TOPIC;
+			return ROCK_TOPIC;
+		}
+
 	}
 
 	private static final Topic ROCK_TOPIC = new Topic("Rock");
@@ -134,12 +142,7 @@ public class Game {
 	}
 
 	private Topic currentTopic() {
-		//TODO this is the currentPlayerPlace % the size of question topics (currently 4)
-		int currentPlayerPlace = places[currentPlayer];
-		if (currentPlayerPlace % 4 == 0) return POP_TOPIC;
-		if (currentPlayerPlace % 4 == 1) return SCIENCE_TOPIC;
-		if (currentPlayerPlace % 4 == 2) return SPORTS_TOPIC;
-		return ROCK_TOPIC;
+		return questionPool.getTopicForPlace(places[currentPlayer]);
 	}
 
 	public boolean wasCorrectlyAnswered() {
