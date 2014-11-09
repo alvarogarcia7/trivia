@@ -20,13 +20,17 @@ public class Game {
     boolean isGettingOutOfPenaltyBox;
     
     public  Game(){
-    	for (int i = 0; i < 50; i++) {
+    	createQuestions();
+    }
+
+	private void createQuestions() {
+		for (int i = 0; i < 50; i++) {
 			popQuestions.addWithDescriptionFromTopic();
 			scienceQuestions.addWithDescriptionFromTopic();
 			sportsQuestions.addWithDescriptionFromTopic();
 			rockQuestions.addWithDescriptionFromTopic();
     	}
-    }
+	}
 
 	public String createRockQuestion(int index){
 		return "Rock Question " + index;
