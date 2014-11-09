@@ -18,7 +18,7 @@ public class Game {
 			return value.get(currentCategory).removeFirst();
 		}
 
-		public void add(Topic topic, Questions questions) {
+		private void add(Topic topic, Questions questions) {
 			add(topic.getValue(), questions);
 		}
 
