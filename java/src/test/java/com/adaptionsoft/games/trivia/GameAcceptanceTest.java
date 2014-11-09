@@ -16,7 +16,7 @@ public class GameAcceptanceTest {
 
 	@Test
 	public void acceptanceTestWithSeed1() {
-		MockSystemOutput mockOutput = injectSystemOutput();
+		MockSystemOutput mockOutput = MockSystemOutput.inject();
 		
 		Game aGame = new Game();
 
@@ -43,10 +43,6 @@ public class GameAcceptanceTest {
 
 		System.err.println(mockOutput.toString());
 
-	}
-
-	private MockSystemOutput injectSystemOutput() {
-		return MockSystemOutput.inject();
 	}
 
 	private void assertEqualsOSEndOfLineIndependent(String gameWithSeed1, String string) {
