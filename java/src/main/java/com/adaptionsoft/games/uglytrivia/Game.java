@@ -105,10 +105,11 @@ public class Game {
 	
 	
 	private String currentCategory() {
+		//TODO this is the currentPlayerPlace % the size of question topics (currently 4)
 		int currentPlayerPlace = places[currentPlayer];
-		if (currentPlayerPlace == 0 || currentPlayerPlace == 4 || currentPlayerPlace == 8) return POP_TOPIC_DESCRIPTION;
-		if (currentPlayerPlace == 1 || currentPlayerPlace == 5 || currentPlayerPlace == 9) return SCIENCE_TOPIC_DESCRIPTION;
-		if (currentPlayerPlace == 2 || currentPlayerPlace == 6 || currentPlayerPlace == 10) return SPORTS_TOPIC_DESCRIPTION;
+		if (currentPlayerPlace % 4 == 0) return POP_TOPIC_DESCRIPTION;
+		if (currentPlayerPlace % 4 == 1) return SCIENCE_TOPIC_DESCRIPTION;
+		if (currentPlayerPlace % 4 == 2) return SPORTS_TOPIC_DESCRIPTION;
 		return ROCK_TOPIC_DESCRIPTION;
 	}
 
