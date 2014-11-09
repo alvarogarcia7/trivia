@@ -19,8 +19,8 @@ public class Game {
 			this.value.put(topicDescription, questions);
 		}
 
-		public String getQuestionFor(String currentCategory) {
-			return value.get(currentCategory).removeFirst();
+		public String getQuestionFor(Topic topic) {
+			return value.get(topic.getValue()).removeFirst();
 		}
 
 		private void add(Topic topic, Questions questions) {
@@ -125,19 +125,10 @@ public class Game {
 	}
 
 	private void askQuestion() {
-		askQuestionFor(currentCategory());		
+		String questionDescription = questionPool.getQuestionFor(questionPool.getTopicForPlace(places[currentPlayer]));
+		System.out.println(questionDescription);		
 	}
 
-	private void askQuestionFor(String currentCategory) {
-		String questionDescription = getQuestionFor(currentCategory);
-		System.out.println(questionDescription);
-	}
-
-	private String getQuestionFor(String currentCategory) {
-		return questionPool.getQuestionFor(currentCategory);
-	}
-	
-	
 	private String currentCategory() {
 		return currentTopic().getValue();
 	}
