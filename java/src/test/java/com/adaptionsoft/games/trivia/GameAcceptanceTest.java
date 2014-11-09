@@ -14,19 +14,6 @@ import com.adaptionsoft.games.uglytrivia.Game;
 
 public class GameAcceptanceTest {
 
-	public class MockSystemOutput {
-		private final StringBuilder stringBuilder= new StringBuilder();
-
-		public void write(int b) {
-			stringBuilder.append((char) b);
-		}
-		
-		@Override
-		public String toString(){
-			return stringBuilder.toString();
-		}
-	}
-
 	@Test
 	public void acceptanceTestWithSeed1() {
 		MockSystemOutput mockOutput = injectSystemOutput();
