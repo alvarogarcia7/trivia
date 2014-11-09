@@ -48,9 +48,9 @@ public class Game {
 
 	private void createQuestions() {
 		questionPool.addHowManyQuestionsForTopic(QUESTION_POOL_SIZE, POP_TOPIC);
-		questionPool.add(SCIENCE_TOPIC, new Questions(SCIENCE_TOPIC, QUESTION_POOL_SIZE));
-		questionPool.add(SPORTS_TOPIC, new Questions(SPORTS_TOPIC, QUESTION_POOL_SIZE));
-		questionPool.add(ROCK_TOPIC, new Questions(ROCK_TOPIC, QUESTION_POOL_SIZE));
+		questionPool.addHowManyQuestionsForTopic(QUESTION_POOL_SIZE, SCIENCE_TOPIC);
+		questionPool.addHowManyQuestionsForTopic(QUESTION_POOL_SIZE, SPORTS_TOPIC);
+		questionPool.addHowManyQuestionsForTopic(QUESTION_POOL_SIZE, ROCK_TOPIC);
 	}
 
 	public boolean isPlayable() {
