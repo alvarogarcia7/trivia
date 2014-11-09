@@ -46,6 +46,17 @@ public class GameAcceptanceTest {
 		System.err.println(mockOutput.toString());
 
 	}
+	
+	@Test
+	public void isPlayableCoverageTest() {
+		Game aGame = new Game();
+		
+		assertFalse(aGame.isPlayable());
+
+		aGame.add("Chet");
+		aGame.add("Pat");
+		assertTrue(aGame.isPlayable());
+	}
 
 	private String expectedOutputForGameWithSeed1() {
 		return "Chet was added\n" +
