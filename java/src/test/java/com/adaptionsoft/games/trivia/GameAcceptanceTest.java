@@ -31,7 +31,7 @@ public class GameAcceptanceTest {
 		playGameWith(new Seed(3L));
 	}
 
-	private void playGameWith(Seed seed) {
+	private void playGameWith(final Seed seed) {
 		MockSystemOutput mockOutput = MockSystemOutput.inject();
 		
 		Game aGame = new Game();
