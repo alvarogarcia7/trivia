@@ -23,13 +23,17 @@ public class Game {
 
 	public boolean add(String playerName) {
 	    players.add(new Player(playerName));
-	    places[howManyPlayers()] = 0;
+	    setInitialPlaceForPlayer();
 	    purses[howManyPlayers()] = 0;
 	    inPenaltyBox[howManyPlayers()] = false;
 	    
 	    System.out.println(playerName + " was added");
 	    System.out.println("They are player number " + players.size());
 		return true;
+	}
+
+	private void setInitialPlaceForPlayer() {
+		places[howManyPlayers()] = 0;
 	}
 	
 	public int howManyPlayers() {
@@ -45,8 +49,8 @@ public class Game {
 				isGettingOutOfPenaltyBox = true;
 				
 				System.out.println(getCurrentPlayer() + " is getting out of the penalty box");
-				places[players.currentPlayer()] = getCurrentPlayerPlace() + roll;
-				if (getCurrentPlayerPlace() > 11) places[players.currentPlayer()] = getCurrentPlayerPlace() - 12;
+				setCurrentPlayerPlace(roll);
+				if (getCurrentPlayerPlace() > 11) setBackCurrentPlayerPlaceBy12();
 				
 				System.out.println(getCurrentPlayer() 
 						+ "'s new location is " 
@@ -60,8 +64,8 @@ public class Game {
 			
 		} else {
 		
-			places[players.currentPlayer()] = getCurrentPlayerPlace() + roll;
-			if (getCurrentPlayerPlace() > 11) places[players.currentPlayer()] = getCurrentPlayerPlace() - 12;
+			setCurrentPlayerPlace(roll);
+			if (getCurrentPlayerPlace() > 11) setBackCurrentPlayerPlaceBy12();
 			
 			System.out.println(getCurrentPlayer() 
 					+ "'s new location is " 
@@ -70,6 +74,14 @@ public class Game {
 			askQuestion();
 		}
 		
+	}
+
+	private void setBackCurrentPlayerPlaceBy12() {
+		setCurrentPlayerPlace(-12);
+	}
+
+	private void setCurrentPlayerPlace(int roll) {
+		places[players.currentPlayer()] = getCurrentPlayerPlace() + roll;
 	}
 
 	private String getCurrentPlayer() {
