@@ -8,7 +8,7 @@ public class Players {
 	
 	private final ArrayList<String> value;
 
-	int currentPlayer = 0;
+	private int currentPlayer = 0;
 	
 	public Players(){
 		value = new ArrayList<String>();
@@ -24,6 +24,18 @@ public class Players {
 
 	public String get(int currentPlayer) {
 		return value.get(currentPlayer);
+	}
+	
+	public int currentPlayer(){
+		return currentPlayer;
+	}
+
+	public void increaseCurrentPlayer() {
+		currentPlayer++;
+	}
+
+	public void resetCurrentPlayer() {
+		currentPlayer = 0;
 	}
 	
 }
