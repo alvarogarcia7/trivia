@@ -37,5 +37,9 @@ public class Players {
 	public void resetCurrentPlayer() {
 		currentPlayer = 0;
 	}
+
+	public String getCurrentPlayer() {
+		return value.get(currentPlayer);
+	}
 	
 }
