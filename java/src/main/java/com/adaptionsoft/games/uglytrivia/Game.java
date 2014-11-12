@@ -6,29 +6,6 @@ import java.util.Map;
 
 public class Game {
 
-	public class Players {
-		private static final long serialVersionUID = 3434721441550093656L;
-		
-		private final ArrayList<String> value;
-		
-		public Players(){
-			value = new ArrayList<String>();
-		}
-
-		public void add(Player player){
-			value.add(player.getValue());
-		}
-		
-		public int size() {
-			return value.size();
-		}
-
-		public String get(int currentPlayer) {
-			return value.get(currentPlayer);
-		}
-		
-	}
-
 	private static final int QUESTION_POOL_SIZE = 50;
 	Players players = new Players();
     int[] places = new int[6];
