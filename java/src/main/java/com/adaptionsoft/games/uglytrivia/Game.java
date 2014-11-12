@@ -109,12 +109,12 @@ public class Game {
 				
 				boolean winner = didPlayerWin();
 				players.increaseCurrentPlayer();
-				if (players.currentPlayer() == players.size()) players.resetCurrentPlayer();
+				if (isLastOnePlaying()) players.resetCurrentPlayer();
 				
 				return winner;
 			} else {
 				players.increaseCurrentPlayer();
-				if (players.currentPlayer() == players.size()) players.resetCurrentPlayer();
+				if (isLastOnePlaying()) players.resetCurrentPlayer();
 				return true;
 			}
 			
@@ -131,10 +131,14 @@ public class Game {
 			
 			boolean winner = didPlayerWin();
 			players.increaseCurrentPlayer();
-			if (players.currentPlayer() == players.size()) players.resetCurrentPlayer();
+			if (isLastOnePlaying()) players.resetCurrentPlayer();
 			
 			return winner;
 		}
+	}
+
+	private boolean isLastOnePlaying() {
+		return players.currentPlayer() == players.size();
 	}
 	
 	public boolean wrongAnswer(){
@@ -143,7 +147,7 @@ public class Game {
 		inPenaltyBox[players.currentPlayer()] = true;
 		
 		players.increaseCurrentPlayer();
-		if (players.currentPlayer() == players.size()) players.resetCurrentPlayer();
+		if (isLastOnePlaying()) players.resetCurrentPlayer();
 		return true;
 	}
 
