@@ -7,6 +7,8 @@ public class Players {
 	private static final long serialVersionUID = 3434721441550093656L;
 	
 	private final ArrayList<String> value;
+
+	int currentPlayer = 0;
 	
 	public Players(){
 		value = new ArrayList<String>();
