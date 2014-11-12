@@ -17,10 +17,12 @@ public class Game {
 	private QuestionPool questionPool = new QuestionPool(QUESTION_POOL_SIZE);
     
     public  Game(){
-    	//TODO AGB do not create questions here; too risky; 
+    }
+
+	private void createQuestions() {
     	//cf comments by @jbrains at https://github.com/alvarogarcia7/trivia/commit/b8f7c04e1b0d0b5e4477dc1a66edcc947ef25976#commitcomment-8505308
     	questionPool.createQuestions();
-    }
+	}
 
 	public boolean isPlayable() {
 		return (howManyPlayers() >= 2);
@@ -148,5 +150,11 @@ public class Game {
 
 	private boolean didPlayerWin() {
 		return !(purses[currentPlayer] == 6);
+	}
+
+	public static Game withQuestions() {
+		Game game = new Game();
+		game.createQuestions();
+		return game;
 	}
 }
