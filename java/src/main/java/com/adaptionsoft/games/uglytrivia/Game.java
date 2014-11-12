@@ -48,12 +48,12 @@ public class Game {
 				isGettingOutOfPenaltyBox = true;
 				
 				System.out.println(players.get(currentPlayer) + " is getting out of the penalty box");
-				places[currentPlayer] = places[currentPlayer] + roll;
-				if (places[currentPlayer] > 11) places[currentPlayer] = places[currentPlayer] - 12;
+				places[currentPlayer] = getCurrentPlayerPlace() + roll;
+				if (getCurrentPlayerPlace() > 11) places[currentPlayer] = getCurrentPlayerPlace() - 12;
 				
 				System.out.println(players.get(currentPlayer) 
 						+ "'s new location is " 
-						+ places[currentPlayer]);
+						+ getCurrentPlayerPlace());
 				System.out.println("The category is " + currentCategory());
 				askQuestion();
 			} else {
@@ -63,12 +63,12 @@ public class Game {
 			
 		} else {
 		
-			places[currentPlayer] = places[currentPlayer] + roll;
-			if (places[currentPlayer] > 11) places[currentPlayer] = places[currentPlayer] - 12;
+			places[currentPlayer] = getCurrentPlayerPlace() + roll;
+			if (getCurrentPlayerPlace() > 11) places[currentPlayer] = getCurrentPlayerPlace() - 12;
 			
 			System.out.println(players.get(currentPlayer) 
 					+ "'s new location is " 
-					+ places[currentPlayer]);
+					+ getCurrentPlayerPlace());
 			System.out.println("The category is " + currentCategory());
 			askQuestion();
 		}
@@ -76,8 +76,12 @@ public class Game {
 	}
 
 	private void askQuestion() {
-		String questionDescription = questionPool.getQuestionForPlace(places[currentPlayer]);
+		String questionDescription = questionPool.getQuestionForPlace(getCurrentPlayerPlace());
 		System.out.println(questionDescription);		
+	}
+
+	private int getCurrentPlayerPlace() {
+		return places[currentPlayer];
 	}
 
 	private String currentCategory() {
@@ -85,7 +89,8 @@ public class Game {
 	}
 
 	private Topic currentTopic() {
-		return questionPool.getTopicForPlace(places[currentPlayer]);
+		//TODO AGB: this responsibility shouldn't be on the question pool but on the board
+		return questionPool.getTopicForPlace(getCurrentPlayerPlace());
 	}
 
 	public boolean wasCorrectlyAnswered() {
