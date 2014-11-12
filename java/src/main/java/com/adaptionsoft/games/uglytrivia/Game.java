@@ -6,8 +6,13 @@ import java.util.Map;
 
 public class Game {
 
+	public class Players extends ArrayList<String> {
+		private static final long serialVersionUID = 3434721441550093656L;
+
+	}
+
 	private static final int QUESTION_POOL_SIZE = 50;
-	ArrayList<String> players = new ArrayList<String>();
+	ArrayList<String> players = new Players();
     int[] places = new int[6];
     int[] purses  = new int[6];
     boolean[] inPenaltyBox  = new boolean[6];
