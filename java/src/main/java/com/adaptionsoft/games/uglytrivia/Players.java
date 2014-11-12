@@ -22,19 +22,11 @@ public class Players {
 		return value.size();
 	}
 
-	public String get(int currentPlayer) {
-		return value.get(currentPlayer);
-	}
-	
 	public int currentPlayer(){
 		return currentPlayer;
 	}
 
-	public void increaseCurrentPlayer() {
-		currentPlayer++;
-	}
-
-	public void resetCurrentPlayer() {
+	private void resetCurrentPlayer() {
 		currentPlayer = 0;
 	}
 
@@ -42,19 +34,15 @@ public class Players {
 		return value.get(currentPlayer);
 	}
 
-	public boolean isTheLastOnePlaying() {
+	private boolean isTheLastOnePlaying() {
 		return currentPlayer() == value.size();
 	}
 
 	public void endOfCurrentTurn() {
-		increaseCurrentPlayer();
-		if (isLastOnePlaying()) {
+		currentPlayer++;
+		if (isTheLastOnePlaying()) {
 			resetCurrentPlayer();
 		}
-	}
-
-	private boolean isLastOnePlaying() {
-		return isTheLastOnePlaying();
 	}
 	
 }
