@@ -16,9 +16,6 @@ public class Game {
     boolean isGettingOutOfPenaltyBox;
 	private QuestionPool questionPool = new QuestionPool(QUESTION_POOL_SIZE);
     
-    public  Game(){
-    }
-
 	private void createQuestions() {
     	//cf comments by @jbrains at https://github.com/alvarogarcia7/trivia/commit/b8f7c04e1b0d0b5e4477dc1a66edcc947ef25976#commitcomment-8505308
     	questionPool.createQuestions();
