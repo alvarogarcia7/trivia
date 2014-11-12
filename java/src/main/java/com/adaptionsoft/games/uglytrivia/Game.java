@@ -6,20 +6,6 @@ import java.util.Map;
 
 public class Game {
 
-	public class Player {
-
-		private final String name;
-
-		public Player(String playerName) {
-			name = playerName;
-		}
-
-		public String getValue() {
-			return name;
-		}
-
-	}
-
 	public class Players {
 		private static final long serialVersionUID = 3434721441550093656L;
 		
