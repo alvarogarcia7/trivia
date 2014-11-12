@@ -41,5 +41,9 @@ public class Players {
 	public String getCurrentPlayer() {
 		return value.get(currentPlayer);
 	}
+
+	public boolean isTheLastOnePlaying() {
+		return currentPlayer() == value.size();
+	}
 	
 }

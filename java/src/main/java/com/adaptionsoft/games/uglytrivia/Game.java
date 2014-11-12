@@ -138,7 +138,7 @@ public class Game {
 	}
 
 	private boolean isLastOnePlaying() {
-		return players.currentPlayer() == players.size();
+		return players.isTheLastOnePlaying();
 	}
 	
 	public boolean wrongAnswer(){
