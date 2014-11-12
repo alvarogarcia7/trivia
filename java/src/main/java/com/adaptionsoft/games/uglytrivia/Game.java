@@ -29,12 +29,8 @@ public class Game {
 			value = new ArrayList<String>();
 		}
 
-		private void add(String playerName) {
-			value.add(playerName);
-		}
-		
 		public void add(Player player){
-			add(player.getValue());
+			value.add(player.getValue());
 		}
 		
 		public int size() {
