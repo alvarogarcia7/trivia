@@ -6,6 +6,20 @@ import java.util.Map;
 
 public class Game {
 
+	public class Player {
+
+		private final String name;
+
+		public Player(String playerName) {
+			name = playerName;
+		}
+
+		public String getValue() {
+			return name;
+		}
+
+	}
+
 	public class Players {
 		private static final long serialVersionUID = 3434721441550093656L;
 		
@@ -15,10 +29,14 @@ public class Game {
 			value = new ArrayList<String>();
 		}
 
-		public void add(String playerName) {
+		private void add(String playerName) {
 			value.add(playerName);
 		}
-
+		
+		public void add(Player player){
+			add(player.getValue());
+		}
+		
 		public int size() {
 			return value.size();
 		}
@@ -49,7 +67,7 @@ public class Game {
 	}
 
 	public boolean add(String playerName) {
-	    players.add(playerName);
+	    players.add(new Player(playerName));
 	    places[howManyPlayers()] = 0;
 	    purses[howManyPlayers()] = 0;
 	    inPenaltyBox[howManyPlayers()] = false;
