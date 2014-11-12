@@ -26,7 +26,7 @@ public class Players {
 		return currentPlayer;
 	}
 
-	private void resetCurrentPlayer() {
+	private void makeTheCurrentPlayerTheFirstOne() {
 		currentPlayer = 0;
 	}
 
@@ -34,14 +34,14 @@ public class Players {
 		return value.get(currentPlayer);
 	}
 
-	private boolean isTheLastOnePlaying() {
+	private boolean isTheCurrentPlayerTheLastOne() {
 		return currentPlayer() == value.size();
 	}
 
 	public void endOfCurrentTurn() {
 		currentPlayer++;
-		if (isTheLastOnePlaying()) {
-			resetCurrentPlayer();
+		if (isTheCurrentPlayerTheLastOne()) {
+			makeTheCurrentPlayerTheFirstOne();
 		}
 	}
 	
