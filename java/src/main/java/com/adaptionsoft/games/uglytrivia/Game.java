@@ -1,8 +1,5 @@
 package com.adaptionsoft.games.uglytrivia;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
 public class Game {
 
@@ -134,10 +131,6 @@ public class Game {
 		}
 	}
 
-	private boolean isLastOnePlaying() {
-		return players.isTheLastOnePlaying();
-	}
-	
 	public boolean wrongAnswer(){
 		System.out.println("Question was incorrectly answered");
 		System.out.println(getCurrentPlayer()+ " was sent to the penalty box");
@@ -148,8 +141,7 @@ public class Game {
 	}
 
 	private void endOfCurrentPlayerTurn() {
-		players.increaseCurrentPlayer();
-		if (isLastOnePlaying()) players.resetCurrentPlayer();
+		players.endOfCurrentTurn();
 	}
 
 

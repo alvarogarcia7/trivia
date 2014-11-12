@@ -45,5 +45,16 @@ public class Players {
 	public boolean isTheLastOnePlaying() {
 		return currentPlayer() == value.size();
 	}
+
+	public void endOfCurrentTurn() {
+		increaseCurrentPlayer();
+		if (isLastOnePlaying()) {
+			resetCurrentPlayer();
+		}
+	}
+
+	private boolean isLastOnePlaying() {
+		return isTheLastOnePlaying();
+	}
 	
 }
