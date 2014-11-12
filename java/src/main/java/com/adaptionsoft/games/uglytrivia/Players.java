@@ -46,5 +46,9 @@ public class Players {
 			makeTheCurrentPlayerTheFirstOne();
 		}
 	}
+
+	public int getCurrentPlayerPlace() {
+		return places[currentPlayer()];
+	}
 	
 }
