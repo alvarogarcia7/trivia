@@ -7,7 +7,7 @@ import java.util.Map;
 public class Game {
 
 	private static final int QUESTION_POOL_SIZE = 50;
-	ArrayList players = new ArrayList();
+	ArrayList<String> players = new ArrayList<String>();
     int[] places = new int[6];
     int[] purses  = new int[6];
     boolean[] inPenaltyBox  = new boolean[6];
