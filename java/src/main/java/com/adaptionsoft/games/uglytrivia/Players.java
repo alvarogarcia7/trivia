@@ -10,6 +10,8 @@ public class Players {
 
 	private int currentPlayer = 0;
 	
+	int[] places = new int[6];
+
 	public Players(){
 		value = new ArrayList<String>();
 	}

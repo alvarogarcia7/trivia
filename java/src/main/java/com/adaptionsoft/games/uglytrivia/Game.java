@@ -5,7 +5,6 @@ public class Game {
 
 	private static final int QUESTION_POOL_SIZE = 50;
 	Players players = new Players();
-    int[] places = new int[6];
     int[] purses  = new int[6];
     boolean[] inPenaltyBox  = new boolean[6];
     
@@ -33,7 +32,7 @@ public class Game {
 	}
 
 	private void setInitialPlaceForPlayer() {
-		places[howManyPlayers()] = 0;
+		players.places[howManyPlayers()] = 0;
 	}
 	
 	public int howManyPlayers() {
@@ -81,7 +80,7 @@ public class Game {
 	}
 
 	private void setCurrentPlayerPlace(int roll) {
-		places[players.currentPlayer()] = getCurrentPlayerPlace() + roll;
+		players.places[players.currentPlayer()] = getCurrentPlayerPlace() + roll;
 	}
 
 	private String getCurrentPlayer() {
@@ -94,7 +93,7 @@ public class Game {
 	}
 
 	private int getCurrentPlayerPlace() {
-		return places[players.currentPlayer()];
+		return players.places[players.currentPlayer()];
 	}
 
 	private String currentCategory() {
