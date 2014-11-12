@@ -6,13 +6,31 @@ import java.util.Map;
 
 public class Game {
 
-	public class Players extends ArrayList<String> {
+	public class Players {
 		private static final long serialVersionUID = 3434721441550093656L;
+		
+		private final ArrayList<String> value;
+		
+		public Players(){
+			value = new ArrayList<String>();
+		}
 
+		public void add(String playerName) {
+			value.add(playerName);
+		}
+
+		public int size() {
+			return value.size();
+		}
+
+		public String get(int currentPlayer) {
+			return value.get(currentPlayer);
+		}
+		
 	}
 
 	private static final int QUESTION_POOL_SIZE = 50;
-	ArrayList<String> players = new Players();
+	Players players = new Players();
     int[] places = new int[6];
     int[] purses  = new int[6];
     boolean[] inPenaltyBox  = new boolean[6];
