@@ -80,7 +80,7 @@ public class Game {
 	}
 
 	private void setCurrentPlayerPlace(int roll) {
-		players.places[players.currentPlayer()] = getCurrentPlayerPlace() + roll;
+		players.updateCurrentPlayerPlaceBy(new PositionIncrease(roll));
 	}
 
 	private String getCurrentPlayer() {

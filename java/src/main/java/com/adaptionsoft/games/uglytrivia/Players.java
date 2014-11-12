@@ -50,5 +50,10 @@ public class Players {
 	public int getCurrentPlayerPlace() {
 		return places[currentPlayer()];
 	}
+
+	public void updateCurrentPlayerPlaceBy(PositionIncrease positionIncrease) {
+		places[currentPlayer()] = getCurrentPlayerPlace() + positionIncrease.getValue();
+
+	}
 	
 }
