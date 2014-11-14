@@ -93,7 +93,7 @@ public class Game {
 	}
 
 	private int getCurrentPlayerPlace() {
-		return players.getCurrentPlayerPlace();
+		return players.getCurrentPlayerPlace().getValue();
 	}
 
 	private String currentCategory() {

@@ -2,6 +2,8 @@ package com.adaptionsoft.games.uglytrivia;
 
 import java.util.ArrayList;
 
+import com.adaptionsoft.games.uglytrivia.Player.Position;
+
 //TODO find better name rather than player+s (plural)
 public class Players {
 	private static final long serialVersionUID = 3434721441550093656L;
@@ -45,8 +47,8 @@ public class Players {
 		}
 	}
 
-	public int getCurrentPlayerPlace() {
-			return value.get(currentPlayer()).getPosition().getValue();
+	public Position getCurrentPlayerPlace() {
+		return value.get(currentPlayer()).getPosition();
 	}
 
 	public void updateCurrentPlayerPlaceBy(PositionIncrease positionIncrease) {
