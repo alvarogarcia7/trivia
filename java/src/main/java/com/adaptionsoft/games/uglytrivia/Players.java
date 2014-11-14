@@ -10,8 +10,6 @@ public class Players {
 
 	private int currentPlayer = 0;
 	
-	int[] places = new int[6];
-
 	public Players(){
 		value = new ArrayList<Player>();
 	}
@@ -48,15 +46,10 @@ public class Players {
 	}
 
 	public int getCurrentPlayerPlace() {
-		if (places[currentPlayer()] == value.get(currentPlayer()).getPosition().getValue()) {
 			return value.get(currentPlayer()).getPosition().getValue();
-		}
-
-		return places[currentPlayer()];
 	}
 
 	public void updateCurrentPlayerPlaceBy(PositionIncrease positionIncrease) {
-		places[currentPlayer()] = getCurrentPlayerPlace() + positionIncrease.getValue();
 		value.get(currentPlayer()).add(positionIncrease);
 	}
 
