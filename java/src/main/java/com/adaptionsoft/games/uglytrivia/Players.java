@@ -6,18 +6,18 @@ import java.util.ArrayList;
 public class Players {
 	private static final long serialVersionUID = 3434721441550093656L;
 	
-	private final ArrayList<String> value;
+	private final ArrayList<Player> value;
 
 	private int currentPlayer = 0;
 	
 	int[] places = new int[6];
 
 	public Players(){
-		value = new ArrayList<String>();
+		value = new ArrayList<Player>();
 	}
 
 	public void add(Player player){
-		value.add(player.getValue());
+		value.add(player);
 	}
 	
 	public int size() {
@@ -33,7 +33,7 @@ public class Players {
 	}
 
 	public String getCurrentPlayer() {
-		return value.get(currentPlayer);
+		return value.get(currentPlayer).getValue();
 	}
 
 	private boolean isTheCurrentPlayerTheLastOne() {
@@ -55,5 +55,4 @@ public class Players {
 		places[currentPlayer()] = getCurrentPlayerPlace() + positionIncrease.getValue();
 
 	}
-	
 }
