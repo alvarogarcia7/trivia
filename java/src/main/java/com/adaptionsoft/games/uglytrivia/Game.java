@@ -33,6 +33,7 @@ public class Game {
 
 	private void setInitialPlaceForPlayer() {
 		players.places[howManyPlayers()] = 0;
+		players.initializePosition();
 	}
 	
 	public int howManyPlayers() {

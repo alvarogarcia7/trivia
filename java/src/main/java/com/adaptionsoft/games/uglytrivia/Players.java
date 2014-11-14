@@ -48,11 +48,19 @@ public class Players {
 	}
 
 	public int getCurrentPlayerPlace() {
+		if (places[currentPlayer()] == value.get(currentPlayer()).getPosition().getValue()) {
+			return value.get(currentPlayer()).getPosition().getValue();
+		}
+
 		return places[currentPlayer()];
 	}
 
 	public void updateCurrentPlayerPlaceBy(PositionIncrease positionIncrease) {
 		places[currentPlayer()] = getCurrentPlayerPlace() + positionIncrease.getValue();
+		value.get(currentPlayer()).add(positionIncrease);
+	}
 
+	public void initializePosition() {
+		value.get(currentPlayer()).initialize();
 	}
 }
