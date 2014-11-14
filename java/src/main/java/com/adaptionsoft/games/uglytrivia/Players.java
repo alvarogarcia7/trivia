@@ -10,6 +10,8 @@ public class Players {
 	
 	private final ArrayList<Player> value;
 
+	// TODO AGB this should be a pointer instead of its position - need to
+	// remove all access to its index before
 	private int currentPlayer = 0;
 	
 	public Players(){
