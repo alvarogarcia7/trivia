@@ -10,8 +10,6 @@ public class Players {
 	
 	private final ArrayList<Player> value;
 
-	private boolean[] inPenaltyBox = new boolean[6];
-
 	// TODO AGB this should be a pointer instead of its position - need to
 	// remove all access to its index before
 	private int currentPlayer = 0;
@@ -71,16 +69,12 @@ public class Players {
 		return getCurrentPlayer().getPurse().getValue();
 	}
 
-	public boolean setCurrentPlayerNotInPenaltyBox() {
-		return inPenaltyBox[size()] = false;
-	}
-
 	public boolean setCurrentPlayerInPenaltyBox() {
-		return inPenaltyBox[currentPlayer()] = true;
+		return getCurrentPlayer().setInPenaltyBox();
 	}
 
 	public boolean isCurrentPlayerInPenaltyBox() {
-		return inPenaltyBox[currentPlayer()];
+		return getCurrentPlayer().isInPenaltyBox();
 	}
 
 }

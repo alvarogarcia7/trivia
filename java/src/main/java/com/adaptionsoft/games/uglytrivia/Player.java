@@ -41,6 +41,7 @@ public class Player {
 	private final String name;
 	private Position position;
 	private Purse purse;
+	private boolean inPenaltyBox;
 
 	public Player(String playerName) {
 		name = playerName;
@@ -62,6 +63,15 @@ public class Player {
 
 	public Purse getPurse() {
 		return purse;
+	}
+
+	public boolean setInPenaltyBox() {
+		inPenaltyBox = true;
+		return isInPenaltyBox();
+	}
+
+	public boolean isInPenaltyBox() {
+		return inPenaltyBox;
 	}
 
 }

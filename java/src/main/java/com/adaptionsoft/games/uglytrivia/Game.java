@@ -54,7 +54,7 @@ public class Game {
 	}
 
 	public boolean setNotInPenaltyBox() {
-		return players.setCurrentPlayerNotInPenaltyBox();
+		return false; // TODO AGB can be removed
 	}
 
 	public boolean setInPenaltyBox() {
