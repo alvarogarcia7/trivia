@@ -23,7 +23,7 @@ public class Game {
 	public boolean add(String playerName) {
 	    players.add(new Player(playerName));
 	    setInitialPlaceForPlayer();
-	    purses[howManyPlayers()] = 0;
+	    setInitialPurseForPlayer();
 	    inPenaltyBox[howManyPlayers()] = false;
 	    
 	    System.out.println(playerName + " was added");
@@ -106,10 +106,10 @@ public class Game {
 		if (inPenaltyBox[players.currentPlayer()]){
 			if (isGettingOutOfPenaltyBox) {
 				System.out.println("Answer was correct!!!!");
-				purses[players.currentPlayer()]++;
+				increaseCurrentPlayerPurse();
 				System.out.println(getCurrentPlayer() 
 						+ " now has "
-						+ purses[players.currentPlayer()]
+						+ getCurrentPlayerPurse()
 						+ " Gold Coins.");
 				
 				boolean winner = didPlayerWin();
@@ -126,10 +126,10 @@ public class Game {
 		} else {
 		
 			System.out.println("Answer was corrent!!!!");
-			purses[players.currentPlayer()]++;
+			increaseCurrentPlayerPurse();
 			System.out.println(getCurrentPlayer() 
 					+ " now has "
-					+ purses[players.currentPlayer()]
+					+ getCurrentPlayerPurse()
 					+ " Gold Coins.");
 			
 			boolean winner = didPlayerWin();
@@ -137,6 +137,18 @@ public class Game {
 			
 			return winner;
 		}
+	}
+
+	private void increaseCurrentPlayerPurse() {
+		purses[players.currentPlayer()]++;
+	}
+
+	private int getCurrentPlayerPurse() {
+		return purses[players.currentPlayer()];
+	}
+
+	private void setInitialPurseForPlayer() {
+		purses[howManyPlayers()] = 0;
 	}
 
 	public boolean wrongAnswer(){
@@ -149,7 +161,7 @@ public class Game {
 	}
 
 	private boolean didPlayerWin() {
-		return !(purses[players.currentPlayer()] == 6);
+		return !(getCurrentPlayerPurse() == 6);
 	}
 
 	public static Game withQuestions() {
