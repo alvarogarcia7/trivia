@@ -35,11 +35,7 @@ public class Players {
 		currentPlayer = 0;
 	}
 
-	public String getCurrentPlayerValue() {
-		return getCurrentPlayer().getValue();
-	}
-
-	private Player getCurrentPlayer() {
+	public Player getCurrentPlayer() {
 		return value.get(currentPlayer());
 	}
 
