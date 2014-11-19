@@ -53,16 +53,16 @@ public class Game {
 		
 	}
 
-	private boolean setNotInPenaltyBox() {
-		return players.inPenaltyBox[howManyPlayers()] = false;
+	public boolean setNotInPenaltyBox() {
+		return players.setNotInPenaltyBox();
 	}
 
-	private boolean setInPenaltyBox() {
-		return players.inPenaltyBox[players.currentPlayer()] = true;
+	public boolean setInPenaltyBox() {
+		return players.setInPenaltyBox();
 	}
 
-	private boolean isInPenaltyBox() {
-		return players.inPenaltyBox[players.currentPlayer()];
+	public boolean isInPenaltyBox() {
+		return players.isInPenaltyBox();
 	}
 
 	private void rollDieAndAskQuestion(int roll) {
