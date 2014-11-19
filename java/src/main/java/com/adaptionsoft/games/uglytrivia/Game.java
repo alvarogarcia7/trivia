@@ -22,7 +22,7 @@ public class Game {
 	public boolean add(String playerName) {
 	    players.add(new Player(playerName));
 	    setInitialPlaceForPlayer();
-	    setInitialPurseForPlayer();
+	    players.setInitialPurseForPlayer();
 	    inPenaltyBox[howManyPlayers()] = false;
 	    
 	    System.out.println(playerName + " was added");
@@ -105,7 +105,7 @@ public class Game {
 		if (inPenaltyBox[players.currentPlayer()]){
 			if (isGettingOutOfPenaltyBox) {
 				System.out.println("Answer was correct!!!!");
-				increaseCurrentPlayerPurse();
+				players.increaseCurrentPlayerPurse();
 				System.out.println(getCurrentPlayer() 
 						+ " now has "
 						+ getCurrentPlayerPurse()
@@ -125,7 +125,7 @@ public class Game {
 		} else {
 		
 			System.out.println("Answer was corrent!!!!");
-			increaseCurrentPlayerPurse();
+			players.increaseCurrentPlayerPurse();
 			System.out.println(getCurrentPlayer() 
 					+ " now has "
 					+ getCurrentPlayerPurse()
@@ -138,16 +138,8 @@ public class Game {
 		}
 	}
 
-	private void increaseCurrentPlayerPurse() {
-		players.increaseCurrentPlayerPurse();
-	}
-
 	private int getCurrentPlayerPurse() {
 		return players.getCurrentPlayerPurse();
-	}
-
-	private void setInitialPurseForPlayer() {
-		players.setInitialPurseForPlayer();
 	}
 
 	public boolean wrongAnswer(){
