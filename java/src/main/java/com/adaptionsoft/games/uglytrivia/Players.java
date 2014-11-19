@@ -71,15 +71,15 @@ public class Players {
 		return getCurrentPlayer().getPurse().getValue();
 	}
 
-	public boolean setNotInPenaltyBox() {
+	public boolean setCurrentPlayerNotInPenaltyBox() {
 		return inPenaltyBox[size()] = false;
 	}
 
-	public boolean setInPenaltyBox() {
+	public boolean setCurrentPlayerInPenaltyBox() {
 		return inPenaltyBox[currentPlayer()] = true;
 	}
 
-	public boolean isInPenaltyBox() {
+	public boolean isCurrentPlayerInPenaltyBox() {
 		return inPenaltyBox[currentPlayer()];
 	}
 

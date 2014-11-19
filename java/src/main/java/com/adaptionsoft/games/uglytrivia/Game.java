@@ -54,15 +54,15 @@ public class Game {
 	}
 
 	public boolean setNotInPenaltyBox() {
-		return players.setNotInPenaltyBox();
+		return players.setCurrentPlayerNotInPenaltyBox();
 	}
 
 	public boolean setInPenaltyBox() {
-		return players.setInPenaltyBox();
+		return players.setCurrentPlayerInPenaltyBox();
 	}
 
 	public boolean isInPenaltyBox() {
-		return players.isInPenaltyBox();
+		return players.isCurrentPlayerInPenaltyBox();
 	}
 
 	private void rollDieAndAskQuestion(int roll) {
