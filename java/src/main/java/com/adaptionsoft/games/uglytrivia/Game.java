@@ -1,5 +1,6 @@
 package com.adaptionsoft.games.uglytrivia;
 
+import com.adaptionsoft.games.uglytrivia.Player.Purse;
 
 public class Game {
 
@@ -105,7 +106,7 @@ public class Game {
 				players.increaseCurrentPlayerPurse();
 				System.out.println(getCurrentPlayer() 
 						+ " now has "
-						+ getCurrentPlayerPurse()
+ + getCurrentPlayerPurse().getValue()
 						+ " Gold Coins.");
 				
 				boolean winner = didPlayerWin();
@@ -125,7 +126,7 @@ public class Game {
 			players.increaseCurrentPlayerPurse();
 			System.out.println(getCurrentPlayer() 
 					+ " now has "
-					+ getCurrentPlayerPurse()
+ + getCurrentPlayerPurse().getValue()
 					+ " Gold Coins.");
 			
 			boolean winner = didPlayerWin();
@@ -135,7 +136,7 @@ public class Game {
 		}
 	}
 
-	private int getCurrentPlayerPurse() {
+	private Purse getCurrentPlayerPurse() {
 		return players.getCurrentPlayerPurse();
 	}
 
@@ -149,7 +150,7 @@ public class Game {
 	}
 
 	private boolean didPlayerWin() {
-		return !(getCurrentPlayerPurse() == 6);
+		return !(getCurrentPlayerPurse().getValue() == 6);
 	}
 
 	public static Game withQuestions() {

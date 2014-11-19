@@ -3,6 +3,7 @@ package com.adaptionsoft.games.uglytrivia;
 import java.util.ArrayList;
 
 import com.adaptionsoft.games.uglytrivia.Player.Position;
+import com.adaptionsoft.games.uglytrivia.Player.Purse;
 
 //TODO find better name rather than player+s (plural)
 public class Players {
@@ -65,8 +66,8 @@ public class Players {
 		getCurrentPlayer().getPurse().increase();
 	}
 
-	public int getCurrentPlayerPurse() {
-		return getCurrentPlayer().getPurse().getValue();
+	public Purse getCurrentPlayerPurse() {
+		return getCurrentPlayer().getPurse();
 	}
 
 	public boolean setCurrentPlayerInPenaltyBox() {
