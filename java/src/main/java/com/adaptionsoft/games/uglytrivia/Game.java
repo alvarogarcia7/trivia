@@ -4,6 +4,7 @@ package com.adaptionsoft.games.uglytrivia;
 public class Game {
 
 
+	private static final int MINIMUM_NUMBER_OF_PLAYERS = 2;
 	private static final int QUESTION_POOL_SIZE = 50;
 	Players players = new Players();
 	boolean isGettingOutOfPenaltyBox;
@@ -15,7 +16,7 @@ public class Game {
 	}
 
 	public boolean isPlayable() {
-		return (players.size() >= 2);
+		return (players.size() >= MINIMUM_NUMBER_OF_PLAYERS);
 	}
 
 	public boolean add(String playerName) {
