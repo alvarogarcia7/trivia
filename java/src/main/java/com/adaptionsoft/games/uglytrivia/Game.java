@@ -21,7 +21,7 @@ public class Game {
 
 	public boolean add(String playerName) {
 	    players.add(new Player(playerName));
-	    inPenaltyBox[howManyPlayers()] = false;
+	    setNotInPenaltyBox();
 	    
 	    System.out.println(playerName + " was added");
 	    System.out.println("They are player number " + players.size());
@@ -36,7 +36,7 @@ public class Game {
 		System.out.println(getCurrentPlayer() + " is the current player");
 		System.out.println("They have rolled a " + roll);
 		
-		if (inPenaltyBox[players.currentPlayer()]) {
+		if (isInPenaltyBox()) {
 			if (roll % 2 != 0) {
 				isGettingOutOfPenaltyBox = true;
 				
@@ -52,6 +52,18 @@ public class Game {
 			rollDieAndAskQuestion(roll);
 		}
 		
+	}
+
+	private boolean setNotInPenaltyBox() {
+		return inPenaltyBox[howManyPlayers()] = false;
+	}
+
+	private boolean setInPenaltyBox() {
+		return inPenaltyBox[players.currentPlayer()] = true;
+	}
+
+	private boolean isInPenaltyBox() {
+		return inPenaltyBox[players.currentPlayer()];
 	}
 
 	private void rollDieAndAskQuestion(int roll) {
@@ -96,7 +108,7 @@ public class Game {
 	}
 
 	public boolean wasCorrectlyAnswered() {
-		if (inPenaltyBox[players.currentPlayer()]){
+		if (isInPenaltyBox()){
 			if (isGettingOutOfPenaltyBox) {
 				System.out.println("Answer was correct!!!!");
 				players.increaseCurrentPlayerPurse();
@@ -139,7 +151,7 @@ public class Game {
 	public boolean wrongAnswer(){
 		System.out.println("Question was incorrectly answered");
 		System.out.println(getCurrentPlayer()+ " was sent to the penalty box");
-		inPenaltyBox[players.currentPlayer()] = true;
+		setInPenaltyBox();
 		
 		players.endOfCurrentTurn();
 		return true;
