@@ -5,7 +5,6 @@ public class Game {
 
 	private static final int QUESTION_POOL_SIZE = 50;
 	Players players = new Players();
-    int[] purses  = new int[6];
     boolean[] inPenaltyBox  = new boolean[6];
     
     boolean isGettingOutOfPenaltyBox;
@@ -140,15 +139,15 @@ public class Game {
 	}
 
 	private void increaseCurrentPlayerPurse() {
-		purses[players.currentPlayer()]++;
+		players.increaseCurrentPlayerPurse();
 	}
 
 	private int getCurrentPlayerPurse() {
-		return purses[players.currentPlayer()];
+		return players.getCurrentPlayerPurse();
 	}
 
 	private void setInitialPurseForPlayer() {
-		purses[howManyPlayers()] = 0;
+		players.setInitialPurseForPlayer();
 	}
 
 	public boolean wrongAnswer(){

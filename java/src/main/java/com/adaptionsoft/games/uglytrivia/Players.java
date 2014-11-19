@@ -9,6 +9,7 @@ public class Players {
 	private static final long serialVersionUID = 3434721441550093656L;
 	
 	private final ArrayList<Player> value;
+	int[] purses = new int[6];
 
 	// TODO AGB this should be a pointer instead of its position - need to
 	// remove all access to its index before
@@ -59,5 +60,17 @@ public class Players {
 
 	public void initializePosition() {
 		value.get(currentPlayer()).initialize();
+	}
+
+	public void increaseCurrentPlayerPurse() {
+		purses[currentPlayer()]++;
+	}
+
+	public int getCurrentPlayerPurse() {
+		return purses[currentPlayer()];
+	}
+
+	public void setInitialPurseForPlayer() {
+		purses[size()] = 0;
 	}
 }
