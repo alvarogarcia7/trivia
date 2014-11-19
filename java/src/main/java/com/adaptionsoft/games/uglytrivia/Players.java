@@ -10,7 +10,7 @@ public class Players {
 	
 	private final ArrayList<Player> value;
 
-	public boolean[] inPenaltyBox = new boolean[6];
+	private boolean[] inPenaltyBox = new boolean[6];
 
 	// TODO AGB this should be a pointer instead of its position - need to
 	// remove all access to its index before
