@@ -15,7 +15,7 @@ public class Game {
 	}
 
 	public boolean isPlayable() {
-		return (howManyPlayers() >= 2);
+		return (players.size() >= 2);
 	}
 
 	public boolean add(String playerName) {
@@ -24,10 +24,6 @@ public class Game {
 	    System.out.println(playerName + " was added");
 	    System.out.println("They are player number " + players.size());
 		return true;
-	}
-
-	public int howManyPlayers() {
-		return players.size();
 	}
 
 	public void roll(int roll) {
