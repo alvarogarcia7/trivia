@@ -48,14 +48,7 @@ public class Game {
 				isGettingOutOfPenaltyBox = true;
 				
 				System.out.println(getCurrentPlayer() + " is getting out of the penalty box");
-				setCurrentPlayerPlace(roll);
-				if (getCurrentPlayerPlace() > 11) setBackCurrentPlayerPlaceBy12();
-				
-				System.out.println(getCurrentPlayer() 
-						+ "'s new location is " 
-						+ getCurrentPlayerPlace());
-				System.out.println("The category is " + currentCategory());
-				askQuestion();
+				rollDieAndAskQuestion(roll);
 			} else {
 				System.out.println(getCurrentPlayer() + " is not getting out of the penalty box");
 				isGettingOutOfPenaltyBox = false;
@@ -63,16 +56,20 @@ public class Game {
 			
 		} else {
 		
-			setCurrentPlayerPlace(roll);
-			if (getCurrentPlayerPlace() > 11) setBackCurrentPlayerPlaceBy12();
-			
-			System.out.println(getCurrentPlayer() 
-					+ "'s new location is " 
-					+ getCurrentPlayerPlace());
-			System.out.println("The category is " + currentCategory());
-			askQuestion();
+			rollDieAndAskQuestion(roll);
 		}
 		
+	}
+
+	private void rollDieAndAskQuestion(int roll) {
+		setCurrentPlayerPlace(roll);
+		if (getCurrentPlayerPlace() > 11) setBackCurrentPlayerPlaceBy12();
+		
+		System.out.println(getCurrentPlayer() 
+				+ "'s new location is " 
+				+ getCurrentPlayerPlace());
+		System.out.println("The category is " + currentCategory());
+		askQuestion();
 	}
 
 	private void setBackCurrentPlayerPlaceBy12() {
