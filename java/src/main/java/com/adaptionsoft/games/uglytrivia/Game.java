@@ -21,8 +21,6 @@ public class Game {
 
 	public boolean add(String playerName) {
 	    players.add(new Player(playerName));
-	    setInitialPlaceForPlayer();
-	    players.setInitialPurseForPlayer();
 	    inPenaltyBox[howManyPlayers()] = false;
 	    
 	    System.out.println(playerName + " was added");
@@ -30,10 +28,6 @@ public class Game {
 		return true;
 	}
 
-	private void setInitialPlaceForPlayer() {
-		players.initializePosition();
-	}
-	
 	public int howManyPlayers() {
 		return players.size();
 	}

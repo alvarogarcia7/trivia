@@ -21,6 +21,8 @@ public class Players {
 
 	public void add(Player player){
 		value.add(player);
+		setInitialPurseForPlayer();
+		initializePosition();
 	}
 	
 	public int size() {
