@@ -64,7 +64,7 @@ public class Game {
 		System.out.println(getCurrentPlayer() 
 				+ "'s new location is " 
 				+ getCurrentPlayerPlace());
-		System.out.println("The category is " + currentCategory());
+		System.out.println("The category is " + currentCategory().getValue());
 		askQuestion();
 	}
 
@@ -89,8 +89,8 @@ public class Game {
 		return players.getCurrentPlayerPlace().getValue();
 	}
 
-	private String currentCategory() {
-		return currentTopic().getValue();
+	private Topic currentCategory() {
+		return currentTopic();
 	}
 
 	private Topic currentTopic() {
