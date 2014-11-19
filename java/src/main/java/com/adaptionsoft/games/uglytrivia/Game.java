@@ -20,7 +20,6 @@ public class Game {
 
 	public boolean add(String playerName) {
 	    players.add(new Player(playerName));
-	    setNotInPenaltyBox();
 	    
 	    System.out.println(playerName + " was added");
 	    System.out.println("They are player number " + players.size());
@@ -51,10 +50,6 @@ public class Game {
 			rollDieAndAskQuestion(roll);
 		}
 		
-	}
-
-	public boolean setNotInPenaltyBox() {
-		return false; // TODO AGB can be removed
 	}
 
 	public boolean setInPenaltyBox() {
