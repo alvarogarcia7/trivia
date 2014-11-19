@@ -34,8 +34,12 @@ public class Players {
 		currentPlayer = 0;
 	}
 
-	public String getCurrentPlayer() {
-		return value.get(currentPlayer).getValue();
+	public String getCurrentPlayerValue() {
+		return getCurrentPlayer().getValue();
+	}
+
+	private Player getCurrentPlayer() {
+		return value.get(currentPlayer());
 	}
 
 	private boolean isTheCurrentPlayerTheLastOne() {
@@ -50,19 +54,19 @@ public class Players {
 	}
 
 	public Position getCurrentPlayerPlace() {
-		return value.get(currentPlayer()).getPosition();
+		return getCurrentPlayer().getPosition();
 	}
 
 	public void updateCurrentPlayerPlaceBy(PositionIncrease positionIncrease) {
-		value.get(currentPlayer()).add(positionIncrease);
+		getCurrentPlayer().add(positionIncrease);
 	}
 
 	public void increaseCurrentPlayerPurse() {
-		value.get(currentPlayer()).getPurse().increase();
+		getCurrentPlayer().getPurse().increase();
 	}
 
 	public int getCurrentPlayerPurse() {
-		return value.get(currentPlayer()).getPurse().getValue();
+		return getCurrentPlayer().getPurse().getValue();
 	}
 
 }

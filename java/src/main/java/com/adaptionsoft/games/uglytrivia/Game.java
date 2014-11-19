@@ -74,7 +74,7 @@ public class Game {
 	}
 
 	private String getCurrentPlayer() {
-		return players.getCurrentPlayer();
+		return players.getCurrentPlayerValue();
 	}
 
 	private void askQuestion() {
