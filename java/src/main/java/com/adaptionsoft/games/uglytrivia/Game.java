@@ -3,11 +3,10 @@ package com.adaptionsoft.games.uglytrivia;
 
 public class Game {
 
+
 	private static final int QUESTION_POOL_SIZE = 50;
 	Players players = new Players();
-    boolean[] inPenaltyBox  = new boolean[6];
-    
-    boolean isGettingOutOfPenaltyBox;
+	boolean isGettingOutOfPenaltyBox;
 	private QuestionPool questionPool = new QuestionPool(QUESTION_POOL_SIZE);
     
 	private void createQuestions() {
@@ -55,15 +54,15 @@ public class Game {
 	}
 
 	private boolean setNotInPenaltyBox() {
-		return inPenaltyBox[howManyPlayers()] = false;
+		return players.inPenaltyBox[howManyPlayers()] = false;
 	}
 
 	private boolean setInPenaltyBox() {
-		return inPenaltyBox[players.currentPlayer()] = true;
+		return players.inPenaltyBox[players.currentPlayer()] = true;
 	}
 
 	private boolean isInPenaltyBox() {
-		return inPenaltyBox[players.currentPlayer()];
+		return players.inPenaltyBox[players.currentPlayer()];
 	}
 
 	private void rollDieAndAskQuestion(int roll) {
