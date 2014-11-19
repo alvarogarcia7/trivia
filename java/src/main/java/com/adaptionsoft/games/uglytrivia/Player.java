@@ -2,6 +2,24 @@ package com.adaptionsoft.games.uglytrivia;
 
 public class Player {
 
+	public class Purse {
+
+		private int value;
+
+		public Purse(int i) {
+			value = i;
+		}
+
+		public int getValue() {
+			return value;
+		}
+
+		public void increase() {
+			value++;
+		}
+
+	}
+
 	public class Position {
 
 		private final int value;
@@ -22,10 +40,12 @@ public class Player {
 
 	private final String name;
 	private Position position;
+	private Purse purse;
 
 	public Player(String playerName) {
 		name = playerName;
 		this.position = new Position(0);
+		this.purse = new Purse(0);
 	}
 
 	public String getValue() {
@@ -40,8 +60,8 @@ public class Player {
 		return position;
 	}
 
-	public void initialize() {
-		this.position = new Position(0);
+	public Purse getPurse() {
+		return purse;
 	}
 
 }
